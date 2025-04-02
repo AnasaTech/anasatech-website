@@ -15,9 +15,9 @@ export default function Footer() {
     {
       title: "Services",
       links: [
-        { name: "Web Development", href: "/services/web" },
-        { name: "Mobile Development", href: "/services/mobile" },
-        { name: "Cloud Solutions", href: "/services/cloud" },
+        { name: "Web Development", href: "#contact" },
+        { name: "Mobile Development", href: "#contact" },
+        { name: "Cloud Solutions", href: "#contact" },
       ]
     },
     {
@@ -210,7 +210,8 @@ export default function Footer() {
                 <li key={linkIndex}>
                   <Link 
                     href={link.href}
-                    className="text-gray-600 hover:text-purple-600 transition-colors"
+                    onClick={(e) => handleScroll(e, link.href)}
+                    className="text-gray-600 hover:text-[#0074b7] transition-colors"
                   >
                     {link.name}
                   </Link>

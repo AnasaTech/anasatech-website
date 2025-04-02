@@ -52,7 +52,7 @@ export default function Hero() {
       ]
     },
     {
-      image: "/tech.jpg",
+      image: "/tech-min.jpg",
       chatBubbles: [
         {
           text: "I am done building the feature! ✨",

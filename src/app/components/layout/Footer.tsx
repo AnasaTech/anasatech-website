@@ -21,9 +21,9 @@ export default function Footer() {
       ]
     },
     {
-      title: "Company",
+      title: "Be bold to innovate",
       links: [
-        { name: "About Us", href: "/about" },
+        { name: "Let's breathe life into your ideas", href: "#contact"},
       ]
     },
   ];

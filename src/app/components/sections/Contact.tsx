@@ -141,7 +141,7 @@ export default function Contact() {
                     icon: FiPhone,
                     title: "Phone",
                     content: "+233 (540) 184-420",
-                    link: "tel:+233543344100"
+                    link: "tel:+233540184420"
                   },
                   {
                     icon: FiMapPin,

@@ -283,7 +283,7 @@ export default function Technologies() {
           >
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 bg-[#003b73] text-white px-8 py-4 rounded-full font-medium hover:bg-purple-700 transition-colors shadow-sm hover:shadow-md"
+              className="inline-flex items-center gap-2 bg-[#003b73] text-white px-8 py-4 rounded-full font-medium hover:bg-[#0074b7] transition-colors shadow-sm hover:shadow-md"
             >
               <span>Start Your Project</span>
               <svg

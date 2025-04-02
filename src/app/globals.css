@@ -24,3 +24,59 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes float {
+  0% {
+    transform: translateY(0px) scale(1);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.02);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-40px) scale(1);
+    opacity: 0;
+  }
+}
+
+.chat-bubble {
+  position: absolute;
+  min-width: 80px;
+  padding: 8px 12px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 12px;
+  width: 12px;
+  height: 12px;
+  background: inherit;
+  transform: rotate(45deg);
+  border-radius: 2px;
+  z-index: -1;
+}
+
+.chat-bubble:nth-child(1) {
+  animation: float 4s infinite;
+  animation-delay: 0s;
+}
+
+.chat-bubble:nth-child(2) {
+  animation: float 4s infinite;
+  animation-delay: 1.5s;
+}
+
+.chat-bubble:nth-child(3) {
+  animation: float 4s infinite;
+  animation-delay: 2.5s;
+}

@@ -128,7 +128,7 @@ export default function Hero() {
                 that drive growth and innovation.
               </motion.p>
 
-              {/* <motion.div
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.9 }}
@@ -149,7 +149,7 @@ export default function Hero() {
                 >
                   View Our Work
                 </Link>
-              </motion.div> */}
+              </motion.div>
             </motion.div>
             
             {/* Right column - Visual elements */}

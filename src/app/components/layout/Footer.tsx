@@ -264,7 +264,7 @@ export default function Footer() {
     </div>
 
     {/* Scroll to Top Button with AnimatePresence */}
-    <AnimatePresence>
+    {/* <AnimatePresence>
       {showScroll && (
         <motion.button
           initial={{ opacity: 0, y: 10 }}
@@ -290,7 +290,7 @@ export default function Footer() {
           </svg>
         </motion.button>
       )}
-    </AnimatePresence>
+    </AnimatePresence> */}
     {/* <Chatbot /> */}
   </footer>
   );

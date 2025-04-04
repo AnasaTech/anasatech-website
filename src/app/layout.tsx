@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from 'next-themes'
-import { Geist, Geist_Mono, Poppins } from "next/font/google";
+import { Geist, Poppins } from "next/font/google";
 import GoogleAnalytics from '@/app/components/Analytics/GoogleAnalytics';
 import "./globals.css";
+import { ChatbaseScript } from '@/app/components/ChatBot';
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,8 +23,16 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/favicon.png",
+        url: "/favicon.ico",
         sizes: "any"
+      },
+      {
+        url: "/favicon-16x16.png",
+        sizes: "16x16"
+      },
+      {
+        url: "/favicon-32x32.png",
+        sizes: "32x32"
       },
     ],
   }
@@ -49,11 +59,7 @@ export default function RootLayout({
           )}
           {children}
         </ThemeProvider>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="HflE5bbCXasgCvOgcprE9";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();`
-          }}
-        />
+        <ChatbaseScript />
       </body>
     </html>
   );

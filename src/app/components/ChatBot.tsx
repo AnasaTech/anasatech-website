@@ -2,15 +2,18 @@
 import Script from 'next/script'
 import { useEffect, useState } from 'react'
 
+interface ChatbaseFunction {
+  (...args: any[]): void;
+  (command: "getState"): string;
+  q?: any[];
+}
+
 declare global {
-    interface Window {
-      chatbase: {
-        (...args: any[]): void;
-        q?: any[];
-        (command: 'getState'): string;
-      };
-    }
+  interface Window {
+    chatbase: ChatbaseFunction;
   }
+}
+
 
 export const ChatbaseScript = () => {
   const [fallbackLoaded, setFallbackLoaded] = useState(false)
@@ -37,22 +40,28 @@ export const ChatbaseScript = () => {
     script.onload = () => {
       setFallbackLoaded(true)
       // Initialize Chatbase
+      // Initialize Chatbase
       if (!window.chatbase || window.chatbase('getState') !== 'initialized') {
-        window.chatbase = function(...args: any[]) {
-          if (!window.chatbase.q) {
-            window.chatbase.q = []
+        const chatbaseFunc = function(...args: any[]) {
+          if (!chatbaseFunc.q) {
+            chatbaseFunc.q = [];
           }
-          window.chatbase.q.push(args)
-        }
-        
-        window.chatbase = new Proxy(window.chatbase, {
+          chatbaseFunc.q.push(args);
+        } as ChatbaseFunction;
+
+        window.chatbase = new Proxy(chatbaseFunc, {
           get(target, prop) {
             if (prop === 'q') {
-              return target.q
+              return target.q;
             }
-            return (...args: any[]) => target(prop, ...args)
+            return (...args: any[]) => {
+              if (prop === 'getState') {
+                return 'initialized';
+              }
+              return target(prop, ...args);
+            };
           }
-        })
+        });
       }
     }
     document.body.appendChild(script)

@@ -2,6 +2,16 @@
 import Script from 'next/script'
 import { useEffect, useState } from 'react'
 
+declare global {
+    interface Window {
+      chatbase: {
+        (...args: any[]): void;
+        q?: any[];
+        (command: 'getState'): string;
+      };
+    }
+  }
+
 export const ChatbaseScript = () => {
   const [fallbackLoaded, setFallbackLoaded] = useState(false)
 

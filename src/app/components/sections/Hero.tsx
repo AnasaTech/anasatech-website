@@ -10,7 +10,8 @@ import {
   FaDocker, 
   FaNodeJs, 
   FaLaravel,
-  FaMicrosoft 
+  FaMicrosoft,
+  FaHeart 
 } from 'react-icons/fa';
 import { 
   SiTypescript, 
@@ -31,74 +32,8 @@ const techStack = [
 ];
 
 export default function Hero() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  
-  const slides = [
-    {
-      image: "/3911318.jpg",
-      chatBubbles: [
-        {
-          text: "Tests passed!",
-          position: "left-[70%] top-[15%]",
-          style: "bg-[#0074b7]/40 border-[#0074b7]",
-          textColor: "text-black"
-        },
-        {
-          text: "Ok, deploy! 🚀",
-          position: "left-[25%] top-[60%]",
-          style: "bg-white/90 border border-[#0074b7]",
-          textColor: "text-gray-600"
-        }
-      ]
-    },
-    {
-      image: "/tech-min.jpg",
-      chatBubbles: [
-        {
-          text: "I am done building the feature! ✨",
-          position: "left-[50%] bottom-[15%]",
-          style: "bg-blue-500/90",
-          textColor: "text-white"
-        }
-      ]
-    }
-  ];
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev === 0 ? 1 : 0));
-    }, 5000);
-
-    return () => clearInterval(timer);
-  }, []);
-
   return (
-    <section id='hero' className="min-h-screen sm:pt-0 md:pt-24 lg:pt-0 flex items-center justify-center bg-white relative overflow-hidden">
-      {/* Animated background grid */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute w-full h-full opacity-50">
-          <div className="absolute inset-0 grid grid-cols-6 gap-2 transform rotate-12 scale-150">
-            {[...Array(24)].map((_, i) => (
-              <div key={i} className="col-span-1">
-                {[...Array(12)].map((_, j) => (
-                  <motion.div
-                    key={j}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: [0.03, 0.06, 0.03] }}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      delay: (i + j) * 0.1,
-                    }}
-                    className="h-8 w-full bg-purple-200 mb-2 rounded-full"
-                  />
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-      
+    <section id='hero' className="min-h-screen sm:pt-0 md:pt-24 lg:pt-0 flex items-center justify-center bg-white relative overflow-hidden">      
       {/* Main content */}
       <div className="container mx-auto px-4 relative z-10 mt-0 sm:mt-4 md:mt-8">
         <div className="max-w-6xl mx-auto">
@@ -111,11 +46,11 @@ export default function Hero() {
               className="text-left"
             >
               <h1 className="text-5xl sm:text-5xl md:text-5xl lg:text-7xl font-bold mb-4 lg:mb-6">
-                <span className="bg-gradient-to-r from-[#003b73] via-[#60a3d9] via-[#0074b7] to-[#bfd7ed] bg-clip-text text-transparent">
-                  {`We <Paint /> \n Your Dreams`}
+                <span className="bg-gradient-to-r from-[#003b73] via-[#60a3d9] to-[#bfd7ed] bg-clip-text text-transparent">
+                  Transform Your
                 </span>
                 <br />
-                <span className="text-black">Into Reality</span>
+                <span className="text-black">Digital Vision</span>
               </h1>
 
               <motion.p
@@ -124,189 +59,249 @@ export default function Hero() {
                 transition={{ delay: 0.6 }}
                 className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 lg:mb-8 leading-relaxed"
               >
-                Crafting exceptional websites, mobile apps, and backend solutions 
-                that drive growth and innovation.
+                Turn your bold ideas into powerful digital solutions. 
+                From concept to launch, we'll help you build  
+                <span className='text-violet-600 font-bold'> software products </span>
+                your customers will love ❤️
               </motion.p>
 
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.9 }}
-                className="flex flex-wrap gap-4"
+                className="space-y-6"
               >
-                <Link 
-                  href={"#contact"} 
-                  onClick={(e) => handleScroll(e, "#contact")} 
-                  className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-[#003b73] text-white rounded-full font-bold overflow-hidden transition-all hover:shadow-2xl hover:shadow-[#0074b7]-200"
-                >
-                  <span className="relative z-10">Get Started</span>
-                  <div className="absolute inset-0 bg-[#0074b7] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-                </Link>
-                <Link 
-                  href={"#projects"} 
-                  onClick={(e) => handleScroll(e, "#projects")}  
-                  className="relative px-6 sm:px-8 py-3 sm:py-4 bg-white text-[#0074b7] rounded-full font-bold border-2 border-[#0074b7] hover:bg-[#bfd7ed] transition-all"
-                >
-                  View Our Work
-                </Link>
+                <div className="flex flex-wrap gap-4">
+                  <Link 
+                    href={"#contact"} 
+                    onClick={(e) => handleScroll(e, "#contact")} 
+                    className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-[#003b73] text-white rounded-full font-bold overflow-hidden transition-all hover:shadow-2xl hover:shadow-[#0074b7]-200"
+                  >
+                    <span className="relative z-10">Start Your Project</span>
+                    <div className="absolute inset-0 bg-[#0074b7] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+                  </Link>
+                  <Link 
+                    href={"#projects"} 
+                    onClick={(e) => handleScroll(e, "#projects")}  
+                    className="relative px-6 sm:px-8 py-3 sm:py-4 bg-white text-[#0074b7] rounded-full font-bold border-2 border-[#0074b7] hover:bg-[#bfd7ed] transition-all"
+                  >
+                    See Success Stories
+                  </Link>
+                </div>
+
+                {/* Social proof section */}
+                <div className="flex flex-col gap-3">
+                  <div className="flex items-center gap-2">
+                    <div className="flex -space-x-2">
+                      {[1,2,3,4].map((i) => (
+                        <div 
+                          key={i} 
+                          className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-800 to-blue-100 border-2 border-white"
+                        />
+                      ))}
+                    </div>
+                    <span className="text-sm text-gray-600">Trusted locally and globally</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <span className="flex items-center">
+                      ⭐⭐⭐⭐⭐
+                      <span className="ml-1">4.9/5 Client satisfaction</span>
+                    </span>
+                  </div>
+                </div>
               </motion.div>
-            </motion.div>
-            
+            </motion.div>            
             {/* Right column - Visual elements */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
-              className="relative mt-8 lg:mt-0"
+              className="relative mt-8 lg:mt-0 h-[500px] select-none"
             >
-              <div className="relative h-[280px] sm:h-[320px] md:h-[400px] lg:h-[500px] w-full">
-                {/* Main circular container */}
-                <motion.div
-                  animate={{
-                    rotateY: [0, 10, 0],
-                    rotateX: [0, -10, 0],
-                  }}
-                  transition={{
-                    duration: 5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-                  style={{
-                    perspective: "1000px",
-                    transformStyle: "preserve-3d",
-                  }}
-                >
-                  {/* Main image container */}
-                  <div className="relative w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] md:w-[320px] md:h-[320px] lg:w-[400px] lg:h-[400px]">
-                    {/* Image carousel */}
-                    <div className="relative w-full h-full rounded-full bg-gradient-to-r from-[#bfd7ed] to-[#B3CEE5]/20">
-                      <div className="absolute inset-4 bg-white rounded-full shadow-lg overflow-hidden">
-                        <div className="relative w-full h-full">
-                          {slides.map((slide, index) => (
-                            <div
-                              key={index}
-                              className={`absolute inset-0 transition-opacity duration-1000 ${
-                                currentSlide === index ? 'opacity-100' : 'opacity-0'
-                              }`}
-                            >
-                              <Image
-                                src={slide.image}
-                                alt={`Slide ${index + 1}`}
-                                fill
-                                className="object-cover rounded-full"
-                                priority={index === 0}
-                                sizes="(max-width: 640px) 240px, (max-width: 768px) 280px, (max-width: 1024px) 320px, 400px"
-                              />
-                              
-                              {/* Chat Bubbles */}
-                              <div className="absolute inset-0">
-                                {slide.chatBubbles.map((bubble, bubbleIndex) => (
-                                  <div
-                                    key={bubbleIndex}
-                                    className={`absolute ${bubble.style} ${bubble.position} p-2 rounded-lg transform -translate-x-1/2 text-xs sm:text-sm md:text-base`}
-                                  >
-                                    <span className={bubble.textColor}>
-                                      {bubble.text}
-                                    </span>
+              {/* Ambient Grid Pattern */}
+              <div className="absolute inset-0 grid grid-cols-8 grid-rows-8 gap-1 opacity-[0.07]">
+                {[...Array(64)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: [0, 0.5, 0] }}
+                    transition={{
+                      duration: 2,
+                      delay: Math.random() * 2,
+                      repeat: Infinity,
+                    }}
+                    className="bg-[#0074b7] rounded-sm"
+                  />
+                ))}
+              </div>
+              {/* Main container */}
+              <div className="relative w-full h-full">
+                {/* Floating Elements */}
+                <div className="absolute inset-0">
+                  {/* Main Card */}
+                  <Link
+                    href="https://luxe.anasatech.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <motion.div
+                      initial={{ y: 0 }}
+                      animate={{ 
+                        y: [0, -10, 0],
+                      }}
+                      transition={{
+                        duration: 6,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                      className="absolute right-0 top-0 w-[300px] sm:w-[380px]"
+                    >
+                      <motion.div
+                        className="relative rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,59,115,0.3)]"
+                        whileHover={{ scale: 1.02, shadow: "[0_30px_60px_rgba(0,59,115,0.4)]" }}
+                        transition={{ duration: 0.4 }}
+                      >
+                        {/* Main Image */}
+                        <div className="relative h-[500px]">
+                          <Image
+                            src="/pointofsale.avif"
+                            alt="Luxe Point of Sale System"
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 640px) 300px, 380px"
+                          />
+                          {/* Content Overlay */}
+                          <div className="absolute inset-0 z-20">
+                            {/* Top Badge */}
+                            <div className="absolute top-6 left-6 right-6">
+                              <div className="bg-white/95 backdrop-blur-sm px-4 py-3 rounded-2xl shadow-lg">
+                                <div className="flex items-center justify-between">
+                                  <div className="flex items-center gap-3">
+                                    <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse" />
+                                    <span className="text-sm font-medium text-gray-800">Try live demo now</span>
                                   </div>
-                                ))}
+                                  <motion.div
+                                    animate={{ x: [0, 5, 0] }}
+                                    transition={{ duration: 2, repeat: Infinity }}
+                                  >
+                                    →
+                                  </motion.div>
+                                </div>
                               </div>
                             </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                    {/* Tech Stack Indicators */}
-                    <div className="absolute inset-0 pointer-events-none">
-                      {techStack.map((tech, index) => {
-                        const angle = (index * (360 / techStack.length)) * (Math.PI / 180);
-                        // Adjust radius based on screen size - further out on mobile, closer on desktop
-                        const radius = typeof window !== 'undefined' 
-                          ? window.innerWidth < 640 
-                            ? Math.min(window.innerWidth * 0.35, 280) // Further on mobile
-                            : window.innerWidth < 768
-                              ? Math.min(window.innerWidth * 0.25, 300) // Closer on tablet
-                              : window.innerWidth < 1024
-                                ? Math.min(window.innerWidth * 0.2, 320) // Even closer on small desktop
-                                : 280 // Closest on large desktop
-                          : 280;
-                        const x = Math.cos(angle) * radius;
-                        const y = Math.sin(angle) * radius;
 
-                        return (
-                          <motion.div
-                            key={tech.name}
-                            initial={{ opacity: 0, x: 0, y: 0 }}
-                            animate={{ 
-                              opacity: 1,
-                              x: x,
-                              y: y,
-                              rotate: [0, 5, 0, -5, 0],
-                            }}
-                            transition={{
-                              delay: tech.delay,
-                              duration: 0.8,
-                              rotate: {
-                                duration: 5,
-                                repeat: Infinity,
-                                ease: "easeInOut"
-                              }
-                            }}
-                            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-                          >
-                            <div className="bg-white px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex items-center gap-1.5 sm:gap-2 md:gap-3 border border-gray-100">
-                              <tech.icon className={`w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 ${tech.color}`} />
-                              <span className="text-[10px] sm:text-xs md:text-sm font-medium bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent whitespace-nowrap">
-                                {tech.name}
-                              </span>
-                              <div className={`absolute inset-0 ${tech.color} opacity-5 blur-sm rounded-xl -z-10`} />
+                            {/* Bottom Content */}
+                            <div className="absolute bottom-0 left-0 right-0 p-6">
+                              <div className="space-y-4">
+                                <div className="flex items-center gap-2">
+                                  <div className="h-px flex-1 bg-white/30" />
+                                  <span className="text-white/70 text-sm font-medium">Featured Product</span>
+                                  <div className="h-px flex-1 bg-white/30" />
+                                </div>
+                                
+                                <h3 className="text-2xl font-bold text-white">
+                                  Luxe POS System
+                                </h3>
+                                
+                                <div className="flex items-center gap-4">
+                                  <div className="flex -space-x-2">
+                                    {[1,2,3].map((i) => (
+                                      <div 
+                                        key={i}
+                                        className="text-3xl"
+                                      >
+                                        ❤️
+                                      </div>
+                                    ))}
+                                  </div>
+                                  <span className="text-white/90 text-sm">
+                                    Built with love
+                                  </span>
+                                </div>
+                              </div>
                             </div>
-                          </motion.div>
-                        );
-                      })}
-                    </div>
 
-                    {/* Background lines */}
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[280px] sm:w-[320px] md:w-[400px] lg:w-[560px] h-[280px] sm:h-[320px] md:h-[400px] lg:h-[560px] -z-10">
-                      <motion.div
-                        animate={{ rotate: 360 }}
-                        transition={{
-                          duration: 30,
-                          repeat: Infinity,
-                          ease: "linear"
-                        }}
-                        className="w-full h-full"
-                      >
-                        {[...Array(6)].map((_, i) => (
-                          <div
-                            key={i}
-                            className="absolute top-1/2 left-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-purple-200/50 to-transparent"
-                            style={{
-                              transform: `rotate(${i * 30}deg) translateX(-50%)`,
-                            }}
-                          />
-                        ))}
+                            {/* Hover Overlay */}
+                            <motion.div
+                              initial={{ opacity: 0 }}
+                              whileHover={{ opacity: 1 }}
+                              transition={{ duration: 0.2 }}
+                              className="absolute inset-0 bg-gradient-to-b from-[#003b73]/80 to-[#003b73]/95 flex items-center justify-center"
+                            >
+                              <motion.div
+                                initial={{ y: 20, opacity: 0 }}
+                                whileHover={{ y: 0, opacity: 1 }}
+                                transition={{ duration: 0.2 }}
+                                className="text-center px-8"
+                              >
+                                <motion.div 
+                                  className="mb-4"
+                                  animate={{ y: [0, -10, 0] }}
+                                  transition={{ duration: 1.5, repeat: Infinity }}
+                                >
+                                  <svg 
+                                    xmlns="http://www.w3.org/2000/svg" 
+                                    className="h-12 w-12 text-white/90 mx-auto" 
+                                    fill="none" 
+                                    viewBox="0 0 24 24" 
+                                    stroke="currentColor"
+                                  >
+                                    <path 
+                                      strokeLinecap="round" 
+                                      strokeLinejoin="round" 
+                                      strokeWidth={1.5} 
+                                      d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" 
+                                    />
+                                  </svg>
+                                </motion.div>
+                                <p className="text-xl font-medium text-white mb-2">
+                                  Experience Luxe POS
+                                </p>
+                                <p className="text-white/80 text-sm">
+                                  Click anywhere to try our demo
+                                </p>
+                              </motion.div>
+                            </motion.div>
+                          </div>
+                        </div>
                       </motion.div>
-                    </div>
-                  </div>
-                </motion.div>
+                    </motion.div>
+                  </Link>
 
-                {/* Background glow */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] sm:w-[320px] md:w-[400px] lg:w-[500px] h-[280px] sm:h-[320px] md:h-[400px] lg:h-[500px]">
-                  <motion.div
-                    animate={{
-                      scale: [1, 1.2, 1],
-                      opacity: [0.3, 0.5, 0.3],
-                    }}
-                    transition={{
-                      duration: 8,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                    className="absolute inset-0 bg-gradient-to-r from-[#0074b7]/10 to-[#0074b7]/10 rounded-full blur-3xl"
-                  />
+                  {/* Background Gradient Orb */}
+                  {/* <div className="absolute inset-0 flex items-center justify-center">
+                    <motion.div
+                      animate={{
+                        scale: [1, 1.2, 1],
+                        opacity: [0.2, 0.3, 0.2],
+                      }}
+                      transition={{
+                        duration: 8,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                      className="w-[400px] h-[400px] rounded-full bg-gradient-to-r from-[#003b73]/20 via-[#0074b7]/20 to-transparent blur-3xl"
+                    />
+                  </div> */}
                 </div>
+
+                {/* Ambient Grid Pattern */}
+                {/* <div className="absolute inset-0 grid grid-cols-8 grid-rows-8 gap-1 opacity-[0.07]">
+                  {[...Array(64)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: [0, 0.5, 0] }}
+                      transition={{
+                        duration: 2,
+                        delay: Math.random() * 2,
+                        repeat: Infinity,
+                      }}
+                      className="bg-[#0074b7] rounded-sm"
+                    />
+                  ))}
+                </div> */}
               </div>
             </motion.div>
           </div>

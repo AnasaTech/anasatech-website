@@ -60,6 +60,16 @@ export default function Contact() {
     }));
   };
 
+  const LoadingBar = () => (
+    <div className="w-full bg-gray-200 rounded-full h-1.5 mb-4 overflow-hidden">
+      <div 
+        className="bg-[#0074b7] h-1.5 rounded-full animate-[loading_1s_ease-in-out_infinite]"
+        style={{ width: '100%' }}
+      />
+    </div>
+  );
+
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -91,6 +101,7 @@ export default function Contact() {
         subject: '',
         message: ''
       });
+      toast.success("Your message has been sent!");
       
     } catch (error) {
       toast.error(error instanceof Error ? error.message : 'Failed to send message');
@@ -254,15 +265,19 @@ export default function Contact() {
                 {/* Submit Button */}
                 <motion.button
                   type="submit"
+                  disabled={isLoading}
                   onHoverStart={() => setIsHovered(true)}
                   onHoverEnd={() => setIsHovered(false)}
-                  whileHover={{ scale: 1.02 }}
+                  whileHover={{ scale: isLoading ? 1 : 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full md:w-auto px-8 py-4 bg-white text-[#003b73] rounded-full font-semibold flex items-center justify-center gap-2 hover:bg-[#bfd7ed] transition-colors"
+                  className={`w-full md:w-auto px-8 py-4 bg-white text-[#003b73] rounded-full 
+                    font-semibold flex items-center justify-center gap-2 
+                    ${isLoading ? 'opacity-75 cursor-not-allowed' : 'hover:bg-[#bfd7ed]'} 
+                    transition-colors`}
                 >
-                  <span>Send Message</span>
+                  <span>{isLoading ? 'Sending...' : 'Send Message'}</span>
                   <motion.div
-                    animate={isHovered ? { x: [0, 4, 0] } : {}}
+                    animate={isHovered && !isLoading ? { x: [0, 4, 0] } : {}}
                     transition={{ repeat: Infinity, duration: 1 }}
                   >
                     <FiSend className="w-5 h-5" />

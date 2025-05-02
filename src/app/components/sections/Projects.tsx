@@ -123,12 +123,12 @@ type Project = {
 const projects: Project[] = [
   {
     id: 1,
-    title: "Next.js + Payloadcms Webapp",
-    description: "A full-stack website that hosts AI driven chat to help survivors of Domestic Violence",
-    image: "/projects/sophia.png",
+    title: "All in One POS System",
+    description: "A full-stack POS webapp for managing different types of businesses",
+    image: "/projects/luxe.png",
     category: "web",
-    technologies: ["Next.js", "Node.js", "Payloadcms", "Postgresql", "Tailwindcss", "Azure", "Github Actions"],
-    link: "https://sophia.chat"
+    technologies: ["React.js", "Node.js", "MySQL", "Redis", "Tailwindcss", "AWS", "Github Actions"],
+    link: "https://luxe.anasatech.com"
   },
   {
     id: 2,
@@ -147,7 +147,16 @@ const projects: Project[] = [
     category: "backend",
     technologies: ["AWS", "Node.js", "Postgresql", "Redis", "Sockets", "Cloudformation"],
     link: "https://www.worldreader.org"
-  }
+  },
+  {
+    id: 4,
+    title: "Next.js + Payloadcms Webapp",
+    description: "A full-stack website that hosts AI driven chat to help survivors of Domestic Violence",
+    image: "/projects/sophia.png",
+    category: "web",
+    technologies: ["Next.js", "Node.js", "Payloadcms", "Postgresql", "Tailwindcss", "Azure", "Github Actions"],
+    link: "https://sophia.chat"
+  },
 ];
 
 export default function Projects() {
@@ -198,7 +207,7 @@ export default function Projects() {
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project) => (
+          {filteredProjects.slice(0,3).map((project) => (
             <div
               key={project.id}
               className="bg-white rounded-xl overflow-hidden shadow-xs hover:shadow-xl transition-shadow duration-300"
@@ -210,6 +219,11 @@ export default function Projects() {
                   alt={project.title}
                   fill
                   className="object-cover"
+                  sizes="(max-width: 640px) 300px, 
+                    (max-width: 768px) 380px, 
+                    (max-width: 1024px) 380px, 
+                    380px"
+                  priority
                 />
               </div>
 

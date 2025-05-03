@@ -33,9 +33,9 @@ const techStack = [
 
 export default function Hero() {
   return (
-    <section id='hero' className="min-h-screen sm:pt-0 md:pt-24 lg:pt-0 flex items-center justify-center bg-white relative overflow-hidden">      
+    <section id='hero' className="min-h-screen pt-20 md:-pt-24 flex items-center justify-center bg-white relative overflow-hidden">      
       {/* Main content */}
-      <div className="container mx-auto px-4 relative z-10 mt-0 sm:mt-4 md:mt-8">
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left column - Text content */}
@@ -43,9 +43,9 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-left"
+              className="text-center lg:text-left"
             >
-              <h1 className="text-5xl sm:text-5xl md:text-5xl lg:text-7xl font-bold mb-4 lg:mb-6">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 lg:mb-6">
                 <span className="bg-gradient-to-r from-[#003b73] via-[#60a3d9] to-[#bfd7ed] bg-clip-text text-transparent">
                   Transform Your
                 </span>
@@ -57,7 +57,7 @@ export default function Hero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6 }}
-                className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 lg:mb-8 leading-relaxed"
+                className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 lg:mb-8 leading-relaxed px-4 sm:px-0"
               >
                 Turn your bold ideas into powerful digital solutions. 
                 From concept to launch, we'll help you build  
@@ -71,11 +71,11 @@ export default function Hero() {
                 transition={{ delay: 0.9 }}
                 className="space-y-6"
               >
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
                   <Link 
                     href={"#contact"} 
                     onClick={(e) => handleScroll(e, "#contact")} 
-                    className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-[#003b73] text-white rounded-full font-bold overflow-hidden transition-all hover:shadow-2xl hover:shadow-[#0074b7]-200"
+                    className="group relative px-6 sm:px-12 py-3 sm:py-4 bg-[#003b73] text-white rounded-full font-bold overflow-hidden transition-all hover:shadow-2xl hover:shadow-[#0074b7]-200 w-full sm:w-auto text-center"
                   >
                     <span className="relative z-10">Start Your Project</span>
                     <div className="absolute inset-0 bg-[#0074b7] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
@@ -83,14 +83,14 @@ export default function Hero() {
                   <Link 
                     href={"#projects"} 
                     onClick={(e) => handleScroll(e, "#projects")}  
-                    className="relative px-6 sm:px-8 py-3 sm:py-4 bg-white text-[#0074b7] rounded-full font-bold border-2 border-[#0074b7] hover:bg-[#bfd7ed] transition-all"
+                    className="relative px-6 sm:px-12 py-3 sm:py-4 bg-white text-[#0074b7] rounded-full font-bold border-2 border-[#0074b7] hover:bg-[#bfd7ed] transition-all w-full sm:w-auto text-center"
                   >
                     See Success Stories
                   </Link>
                 </div>
 
                 {/* Social proof section */}
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col items-center lg:items-start gap-3">
                   <div className="flex items-center gap-2">
                     <div className="flex -space-x-2">
                       {[1,2,3,4].map((i) => (
@@ -116,27 +116,11 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
-              className="relative mt-8 lg:mt-0 h-[500px] select-none"
+              className="relative mt-8 lg:mt-0 h-[400px] sm:h-[500px] select-none"
             >
-              {/* Ambient Grid Pattern */}
-              <div className="absolute inset-0 grid grid-cols-8 grid-rows-8 gap-1 opacity-[0.07]">
-                {[...Array(64)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: [0, 0.5, 0] }}
-                    transition={{
-                      duration: 2,
-                      delay: Math.random() * 2,
-                      repeat: Infinity,
-                    }}
-                    className="bg-[#0074b7] rounded-sm"
-                  />
-                ))}
-              </div>
+
               {/* Main container */}
               <div className="relative w-full h-full">
-                {/* Floating Elements */}
                 <div className="absolute inset-0">
                   {/* Main Card */}
                   <Link
@@ -146,16 +130,7 @@ export default function Hero() {
                     className="block"
                   >
                     <motion.div
-                      initial={{ y: 0 }}
-                      animate={{ 
-                        y: [0, -10, 0],
-                      }}
-                      transition={{
-                        duration: 6,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      }}
-                      className="absolute right-0 top-0 w-[300px] sm:w-[380px]"
+                      className="absolute left-1/2 transform -translate-x-1/2 md:translate-x-0 md:right-0 md:left-auto md:top-0 top-0 w-[300px] sm:w-[380px]"
                     >
                       <motion.div
                         className="relative rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,59,115,0.3)]"
@@ -163,13 +138,14 @@ export default function Hero() {
                         transition={{ duration: 0.4 }}
                       >
                         {/* Main Image */}
-                        <div className="relative h-[500px]">
+                        <div className="relative h-[400px] sm:h-[500px] mb-2">
                           <Image
                             src="/pointofsale.avif"
                             alt="Luxe Point of Sale System"
                             fill
                             className="object-cover"
                             sizes="(max-width: 640px) 300px, 380px"
+                            priority
                           />
                           {/* Content Overlay */}
                           <div className="absolute inset-0 z-20">
@@ -285,23 +261,6 @@ export default function Hero() {
                     />
                   </div> */}
                 </div>
-
-                {/* Ambient Grid Pattern */}
-                {/* <div className="absolute inset-0 grid grid-cols-8 grid-rows-8 gap-1 opacity-[0.07]">
-                  {[...Array(64)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: [0, 0.5, 0] }}
-                      transition={{
-                        duration: 2,
-                        delay: Math.random() * 2,
-                        repeat: Infinity,
-                      }}
-                      className="bg-[#0074b7] rounded-sm"
-                    />
-                  ))}
-                </div> */}
               </div>
             </motion.div>
           </div>

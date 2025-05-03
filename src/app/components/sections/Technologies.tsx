@@ -247,10 +247,6 @@ export default function Technologies() {
             {filteredTechnologies.map((tech, index) => (
               <motion.div
                 key={tech.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -5 }}
                 className="group relative p-6 bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300"
               >

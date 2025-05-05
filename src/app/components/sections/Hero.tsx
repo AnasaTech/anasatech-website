@@ -1,5 +1,4 @@
 'use client';
-import { useState, useEffect } from 'react';
 import { handleScroll } from '@/app/utils/scroll';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -11,7 +10,6 @@ import {
   FaNodeJs, 
   FaLaravel,
   FaMicrosoft,
-  FaHeart 
 } from 'react-icons/fa';
 import { 
   SiTypescript, 
@@ -35,7 +33,7 @@ export default function Hero() {
   return (
     <section id='hero' className="min-h-screen pt-20 md:-pt-24 flex items-center justify-center bg-white relative overflow-hidden">      
       {/* Main content */}
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10 mb-10">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left column - Text content */}
@@ -138,7 +136,7 @@ export default function Hero() {
                         transition={{ duration: 0.4 }}
                       >
                         {/* Main Image */}
-                        <div className="relative h-[400px] sm:h-[500px] mb-2">
+                        <div className="relative h-[400px] sm:h-[500px]">
                           <Image
                             src="/pointofsale.avif"
                             alt="Luxe Point of Sale System"

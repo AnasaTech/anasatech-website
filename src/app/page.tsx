@@ -5,6 +5,7 @@ import Technologies from '@/app/components/sections/Technologies';
 import Contact from '@/app/components/sections/Contact';
 import Navbar from '@/app/components/layout/Navbar';
 import Footer from '@/app/components/layout/Footer';
+import POSAnnouncement from './components/sections/POSAnnouncement';
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <main>
         <Navbar/>
         <Hero />
+        <POSAnnouncement />
         <Services />
         <Technologies />
         <Projects />

@@ -151,13 +151,13 @@ export default function Contact() {
                   {
                     icon: FiPhone,
                     title: "Phone",
-                    content: "+233 (540) 184-420",
-                    link: "tel:+233540184420"
+                    content: "+233 (543) 344-100",
+                    link: "tel:+233543344100"
                   },
                   {
                     icon: FiMapPin,
                     title: "Office",
-                    content: "Amasaman Abehenease Junction",
+                    content: "ACP Junction, Josana Estates",
                     link: "https://maps.google.com"
                   }
                 ].map((item, index) => (

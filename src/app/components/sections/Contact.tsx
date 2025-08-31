@@ -151,8 +151,8 @@ export default function Contact() {
                   {
                     icon: FiPhone,
                     title: "Phone",
-                    content: "+233 (543) 344-100",
-                    link: "tel:+233543344100"
+                    content: "+233 (547) 157-531",
+                    link: "tel:+233547157531"
                   },
                   {
                     icon: FiMapPin,

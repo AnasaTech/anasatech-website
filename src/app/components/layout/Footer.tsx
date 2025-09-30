@@ -227,7 +227,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           {/* Copyright */}
           <div className="text-gray-600 text-sm">
-            © {new Date().getFullYear()} Your Company. All rights reserved.
+            © {new Date().getFullYear()} TaskPaddy (Anasatech). All rights reserved.
           </div>
 
           {/* Social Links */}

@@ -10,9 +10,10 @@ export default function Navbar() {
     const [activeLink, setActiveLink] = useState('');
 
     const menuItems = [
-        { href: "#services", label: "Services" },
-        { href: "#technologies", label: "Technologies" },
-        { href: "#projects", label: "Projects" },
+        { href: "#hero", label: "Home" },
+        { href: "#products", label: "Products" },
+        { href: "#about", label: "About" },
+        { href: "#social-proof", label: "Testimonials" },
         { href: "#contact", label: "Contact" }
     ];
 
@@ -23,8 +24,16 @@ export default function Navbar() {
                 <div className="flex items-center justify-between h-20">
                     {/* Logo */}
                     <div className="flex-1 flex justify-start">
-                        <Link href="/#" onClick={(e) => handleScroll(e, "#hero")}>
-                            <Image src="/logo.png" alt="Company Logo" width={120} height={40} />
+                        <Link href="/#" onClick={(e) => handleScroll(e, "#hero")} className="inline-block">
+                            <Image 
+                              src="/logo.png" 
+                              alt="Anasatech - Building the Future of African Business" 
+                              width={120} 
+                              height={40}
+                              priority
+                              quality={90}
+                              className="rounded-lg hover:scale-105 transition-transform duration-300"
+                            />
                         </Link>
                     </div>
 
@@ -82,7 +91,8 @@ export default function Navbar() {
                     <div className="md:hidden">
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className="p-2 rounded-lg text-gray-600 hover:text-purple-600 focus:outline-none"
+                            className="p-2 rounded-lg text-gray-600 hover:text-[#0074b7] focus:outline-none min-w-[44px] min-h-[44px] flex items-center justify-center"
+                            aria-label={isOpen ? "Close menu" : "Open menu"}
                         >
                             {!isOpen ? (
                                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -98,46 +108,66 @@ export default function Navbar() {
                 </div>
             </div>
 
-            {/* Mobile Navigation Menu */}
+            {/* Mobile Navigation Menu - Full Screen Overlay */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="md:hidden bg-white border-t border-gray-100"
+                        initial={{ x: '100%' }}
+                        animate={{ x: 0 }}
+                        exit={{ x: '100%' }}
+                        transition={{ duration: 0.3, ease: 'easeInOut' }}
+                        className="fixed inset-0 top-20 md:hidden bg-white/95 backdrop-blur-lg z-40"
                     >
-                        <div className="container mx-auto px-4 py-4">
-                            <div className="flex flex-col gap-4">
-                                {menuItems.map((item) => (
-                                    <a
+                        <div className="container mx-auto px-4 py-8 h-full">
+                            <div className="flex flex-col gap-6 h-full">
+                                {menuItems.map((item, index) => (
+                                    <motion.div
                                         key={item.href}
-                                        href={item.href}
-                                        onClick={() => setIsOpen(false)}
+                                        initial={{ opacity: 0, x: 20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: index * 0.1 }}
+                                    >
+                                        <Link
+                                            href={item.href}
+                                            onClick={(e) => {
+                                                handleScroll(e, item.href);
+                                                setIsOpen(false);
+                                            }}
+                                            className="
+                                                block font-poppins font-semibold text-2xl
+                                                text-gray-800 hover:text-[#0074b7] 
+                                                transition-colors py-3 border-b border-gray-200
+                                                min-h-[44px] flex items-center
+                                            "
+                                        >
+                                            {item.label}
+                                        </Link>
+                                    </motion.div>
+                                ))}
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.4 }}
+                                    className="mt-auto"
+                                >
+                                    <Link
+                                        href={"#contact"}
+                                        onClick={(e) => {
+                                            handleScroll(e, "#contact");
+                                            setIsOpen(false);
+                                        }}
                                         className="
-                                            font-poppins font-medium text-[15px]
-                                            text-gray-800 hover:text-purple-600 
-                                            transition-colors py-2
+                                        block text-center font-poppins font-semibold text-lg
+                                        bg-[#0074b7] text-white 
+                                        px-8 py-4 rounded-full
+                                        hover:bg-[#003b73]
+                                        transition-all duration-200
+                                        min-h-[44px]
                                         "
                                     >
-                                        {item.label}
-                                    </a>
-                                ))}
-                                <Link
-                                    href={"#contact"}
-                                    onClick={() => setIsOpen(false)}
-                                    className="
-                                    font-poppins font-semibold text-[15px]
-                                    bg-[#0074b7] text-white 
-                                    px-7 py-3 rounded-full
-                                    hover:bg-[#003b73]
-                                    transition-all duration-200
-                                    w-full
-                                    "
-                                >
-                                    Let's Talk
-                                </Link>
+                                        Let's Talk
+                                    </Link>
+                                </motion.div>
                             </div>
                         </div>
                     </motion.div>

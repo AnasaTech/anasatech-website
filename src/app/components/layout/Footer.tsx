@@ -3,35 +3,46 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { FaGithub, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
+import { FaLinkedinIn, FaFacebook, FaInstagram } from 'react-icons/fa';
 import { toast } from 'react-hot-toast';
 import { handleScroll } from '@/app/utils/scroll';
 import Chatbot from '../chatbot/Chatbot';
 import confetti from 'canvas-confetti';
 
 
+interface FooterLink {
+  name: string;
+  href: string;
+  external?: boolean;
+}
+
+interface FooterSection {
+  title: string;
+  links: FooterLink[];
+}
+
 export default function Footer() {
-  const footerSections = [
+  const footerSections: FooterSection[] = [
     {
-      title: "Services",
+      title: "Products",
       links: [
-        { name: "Web Development", href: "#contact" },
-        { name: "Mobile Development", href: "#contact" },
-        { name: "Cloud Solutions", href: "#contact" },
+        { name: "Luxe POS", href: "https://luxe.anasatech.com", external: true },
+        { name: "Gatherly", href: "https://gatherly.anasatech.com", external: true },
       ]
     },
     {
-      title: "Be bold to innovate",
+      title: "Company",
       links: [
-        { name: "Let's breathe life into your ideas", href: "#contact"},
+        { name: "About Us", href: "#about" },
+        { name: "Contact", href: "#contact" },
       ]
     },
   ];
 
   const socialLinks = [
-    { icon: FaGithub, href: "https://github.com", label: "GitHub" },
-    { icon: FaLinkedinIn, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: FaInstagram, href: "https://instagram.com", label: "Instagram" }
+    { icon: FaLinkedinIn, href: "https://www.linkedin.com/company/anasatech/", label: "LinkedIn" },
+    { icon: FaFacebook, href: "https://web.facebook.com/anasatechnology", label: "Facebook" },
+    { icon: FaInstagram, href: "https://www.instagram.com/anasatechnologies/", label: "Instagram" },
   ];
 
   const [isLoading, setIsLoading] = useState(false);
@@ -116,8 +127,16 @@ export default function Footer() {
     <footer className="relative bg-white pt-24 pb-12 overflow-hidden font-poppins">
     {/* Decorative Elements */}
     <div className="absolute inset-0 -z-10">
-      <div className="absolute top-0 left-0 w-72 h-72 bg-purple-100 rounded-full blur-3xl opacity-30 -translate-x-1/2 -translate-y-1/2"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-100 rounded-full blur-3xl opacity-30 translate-x-1/2 translate-y-1/2"></div>
+      <motion.div 
+        animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.3, 0.2] }}
+        transition={{ duration: 8, repeat: Infinity }}
+        className="absolute top-0 left-0 w-72 h-72 bg-[#bfd7ed]/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"
+      />
+      <motion.div 
+        animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.3, 0.2] }}
+        transition={{ duration: 8, repeat: Infinity, delay: 4 }}
+        className="absolute bottom-0 right-0 w-96 h-96 bg-[#60a3d9]/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"
+      />
     </div>
 
     <div className="container mx-auto px-4">
@@ -125,22 +144,24 @@ export default function Footer() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
         {/* Brand Column */}
         <div className="lg:col-span-2">
-          <Link href="/#" onClick={(e) => handleScroll(e, "#hero")}>
+          <Link href="/#" onClick={(e) => handleScroll(e, "#hero")} className="inline-block">
             <Image
               src="/logo.png"
-              alt="Company Logo"
+              alt="Anasatech - Building the Future of African Business"
               width={140}
               height={40}
-              className="mb-6"
+              className="mb-6 rounded-lg hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+              quality={85}
             />
           </Link>
-          <p className="text-gray-600 mb-8 pr-4 leading-relaxed">
-            Transforming ideas into digital realities. We create innovative solutions 
-            that help businesses thrive in the digital age.
+          <p className="text-gray-600 mb-8 pr-4 leading-relaxed text-base">
+            A women-led technology company building innovative software products 
+            that empower African businesses and entrepreneurs.
           </p>
 
           {/* Newsletter Signup Form */}
-          <form onSubmit={handleSubscribe} className="relative max-w-md">
+          {/* <form onSubmit={handleSubscribe} className="relative max-w-md">
             <div className="relative">
               <input
                 type="email"
@@ -151,8 +172,8 @@ export default function Footer() {
                 }}
                 placeholder="Enter your email"
                 className={`
-                  w-full px-6 py-4 rounded-full bg-gray-50
-                  border transition-colors duration-200
+                  w-full px-6 py-4 rounded-full bg-gray-50 text-base
+                  border transition-colors duration-200 min-h-[44px]
                   ${error ? 'border-[#0074b7] focus:border-[#0074b7]' : 'border-gray-100 focus:border-[#0074b7]'}
                   focus:outline-none
                 `}
@@ -164,9 +185,9 @@ export default function Footer() {
                 className={`
                   absolute right-2 top-1/2 -translate-y-1/2 
                   bg-[#0074b7] text-white px-6 py-2 rounded-full 
-                  text-sm font-medium transition-all duration-200
+                  text-base font-medium transition-all duration-200
                   hover:bg-[#003b73] disabled:bg-purple-400
-                  flex items-center gap-2
+                  flex items-center gap-2 min-h-[44px]
                 `}
               >
                 {isLoading ? (
@@ -180,7 +201,6 @@ export default function Footer() {
               </button>
             </div>
             
-            {/* Error Message */}
             {error && (
               <motion.p
                 initial={{ opacity: 0, y: -10 }}
@@ -190,15 +210,7 @@ export default function Footer() {
                 {error}
               </motion.p>
             )}
-
-            {/* Privacy Notice */}
-            <p className="text-gray-500 text-xs mt-3 ml-4">
-              By subscribing, you agree to our{' '}
-              <Link href="/privacy" className="text-[#0074b7] hover:text-purple-700 underline">
-                Privacy Policy
-              </Link>
-            </p>
-          </form>
+          </form> */}
         </div>
 
         {/* Links Columns */}
@@ -208,13 +220,27 @@ export default function Footer() {
             <ul className="space-y-4">
               {section.links.map((link, linkIndex) => (
                 <li key={linkIndex}>
-                  <Link 
-                    href={link.href}
-                    onClick={(e) => handleScroll(e, link.href)}
-                    className="text-gray-600 hover:text-[#0074b7] transition-colors"
-                  >
-                    {link.name}
-                  </Link>
+                  {link.external ? (
+                    <a 
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-600 hover:text-[#0074b7] transition-colors text-base min-h-[44px] inline-flex items-center gap-1"
+                    >
+                      {link.name}
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                  ) : (
+                    <Link 
+                      href={link.href}
+                      onClick={(e) => handleScroll(e, link.href)}
+                      className="text-gray-600 hover:text-[#0074b7] transition-colors text-base min-h-[44px] inline-flex items-center"
+                    >
+                      {link.name}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -226,8 +252,8 @@ export default function Footer() {
       <div className="pt-8 border-t border-gray-100">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           {/* Copyright */}
-          <div className="text-gray-600 text-sm">
-            © {new Date().getFullYear()} TaskPaddy (Anasatech). All rights reserved.
+          <div className="text-gray-600 text-base">
+            © {new Date().getFullYear()} Anasatech, a Kintari Tech Ltd company. All rights reserved.
           </div>
 
           {/* Social Links */}
@@ -238,7 +264,7 @@ export default function Footer() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-600 hover:bg-[#003b73] hover:text-white transition-all"
+                className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-gray-50 flex items-center justify-center text-gray-600 hover:bg-[#003b73] hover:text-white transition-all"
                 whileHover={{ y: -3 }}
                 aria-label={social.label}
               >
@@ -248,17 +274,17 @@ export default function Footer() {
           </div>
 
           {/* Additional Links */}
-          <div className="flex space-x-6 text-sm">
-            <Link href="/privacy" className="text-gray-600 hover:text-[#0074b7] transition-colors">
+          {/* <div className="flex flex-wrap space-x-6 text-base">
+            <Link href="/privacy" className="text-gray-600 hover:text-[#0074b7] transition-colors min-h-[44px] flex items-center">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-gray-600 hover:text-[#0074b7] transition-colors">
+            <Link href="/terms" className="text-gray-600 hover:text-[#0074b7] transition-colors min-h-[44px] flex items-center">
               Terms of Service
             </Link>
-            <Link href="/cookies" className="text-gray-600 hover:text-[#0074b7] transition-colors">
+            <Link href="/cookies" className="text-gray-600 hover:text-[#0074b7] transition-colors min-h-[44px] flex items-center">
               Cookies Policy
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

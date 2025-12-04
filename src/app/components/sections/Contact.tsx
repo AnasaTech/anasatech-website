@@ -112,9 +112,35 @@ export default function Contact() {
 
 
   return (
-    <section id='contact' className="py-24 bg-[#003b73] relative overflow-hidden font-poppins">
-      {/* Background Elements */}
-      <div className="container mx-auto px-4">
+    <section id='contact' className="py-24 bg-gradient-to-br from-[#003b73] via-[#0074b7] to-[#003b73] relative overflow-hidden font-poppins">
+      {/* Animated Background Elements */}
+      <motion.div
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.1, 0.2, 0.1],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute top-0 left-0 w-96 h-96 bg-[#60a3d9]/20 rounded-full blur-3xl"
+      />
+      <motion.div
+        animate={{
+          scale: [1, 1.3, 1],
+          opacity: [0.1, 0.2, 0.1],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2,
+        }}
+        className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#bfd7ed]/20 rounded-full blur-3xl"
+      />
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
@@ -128,10 +154,10 @@ export default function Contact() {
                 Get in Touch
               </span>
               <h2 className="text-4xl md:text-5xl font-bold mb-6  bg-clip-text ">
-                Let's Start a Conversation
+                Ready to Transform Your Business?
               </h2>
-              <p className="text-gray max-w-2xl mx-auto text-lg">
-                Have a project in mind? We'd love to hear about it. Drop us a message and we'll get back to you as soon as possible.
+              <p className="text-gray max-w-2xl mx-auto text-base md:text-lg">
+                Interested in Luxe POS or Gatherly? Request a demo, ask about our products, or get in touch with our team. We're here to help you succeed.
               </p>
             </motion.div>
           </div>
@@ -145,8 +171,8 @@ export default function Contact() {
                   {
                     icon: FiMail,
                     title: "Email",
-                    content: "support@anasatech.com",
-                    link: "mailto:support@anasatech.com"
+                    content: "info@anasatech.com",
+                    link: "mailto:info@anasatech.com"
                   },
                   {
                     icon: FiPhone,
@@ -168,16 +194,22 @@ export default function Contact() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="flex items-start p-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow group"
+                    whileHover={{ y: -6, scale: 1.03 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="flex items-start p-6 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-[#0074b7]/20 transition-all duration-300 group border border-gray-100"
                   >
-                    <div className="w-12 h-12 bg-[#bfd7ed] rounded-xl flex items-center justify-center group-hover:bg-[#003b73] transition-colors">
+                    <motion.div
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      transition={{ type: "spring", stiffness: 400 }}
+                      className="w-12 h-12 bg-gradient-to-br from-[#bfd7ed] to-[#60a3d9] rounded-xl flex items-center justify-center group-hover:from-[#0074b7] group-hover:to-[#003b73] transition-all duration-300 shadow-md"
+                    >
                       <item.icon className="w-6 h-6 text-[#003b73] group-hover:text-white transition-colors" />
-                    </div>
+                    </motion.div>
                     <div className="ml-4">
-                      <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                      <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-1 group-hover:text-[#0074b7] transition-colors">
                         {item.title}
                       </h3>
-                      <p className="text-gray-600">{item.content}</p>
+                      <p className="text-gray-600 text-base">{item.content}</p>
                     </div>
                   </motion.a>
                 ))}
@@ -195,7 +227,7 @@ export default function Contact() {
                 <div className="grid md:grid-cols-2 gap-6">
                   {/* Name Input */}
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray mb-2">
+                    <label htmlFor="name" className="block text-base font-medium text-gray mb-2">
                       Your Name
                     </label>
                     <input
@@ -205,14 +237,14 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 rounded-lg text-black bg-gray-50 border border-gray-200 focus:border-[#0074b7] focus:ring-2 focus:ring-[#0074b7] focus:outline-none transition-colors"
+                      className="w-full px-4 py-3 rounded-lg text-black text-base bg-gray-50 border border-gray-200 focus:border-[#0074b7] focus:ring-2 focus:ring-[#0074b7] focus:outline-none transition-colors min-h-[44px]"
                       placeholder="John Doe"
                     />
                   </div>
 
                   {/* Email Input */}
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray mb-2">
+                    <label htmlFor="email" className="block text-base font-medium text-gray mb-2">
                       Your Email
                     </label>
                     <input
@@ -222,7 +254,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 text-black rounded-lg bg-gray-50 border border-gray-200 focus:border-[#0074b7] focus:ring-2 focus:ring-[#0074b7] focus:outline-none transition-colors"
+                      className="w-full px-4 py-3 text-black text-base rounded-lg bg-gray-50 border border-gray-200 focus:border-[#0074b7] focus:ring-2 focus:ring-[#0074b7] focus:outline-none transition-colors min-h-[44px]"
                       placeholder="john@example.com"
                     />
                   </div>
@@ -230,7 +262,7 @@ export default function Contact() {
 
                 {/* Subject Input */}
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray mb-2">
+                  <label htmlFor="subject" className="block text-base font-medium text-gray mb-2">
                     Subject
                   </label>
                   <input
@@ -240,14 +272,14 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 text-black rounded-lg bg-gray-50 border border-gray-200 focus:border-[#0074b7] focus:ring-2 focus:ring-[#0074b7] focus:outline-none transition-colors"
-                    placeholder="I want the coolest website"
+                    className="w-full px-4 py-3 text-black text-base rounded-lg bg-gray-50 border border-gray-200 focus:border-[#0074b7] focus:ring-2 focus:ring-[#0074b7] focus:outline-none transition-colors min-h-[44px]"
+                    placeholder="Product Demo Request, Sales Inquiry, Support..."
                   />
                 </div>
 
                 {/* Message Input */}
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray mb-2">
+                  <label htmlFor="message" className="block text-base font-medium text-gray mb-2">
                     Message
                   </label>
                   <textarea
@@ -257,31 +289,40 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 text-black rounded-lg bg-gray-50 border border-gray-200 focus:border-[#0074b7] focus:ring-2 focus:ring-[#0074b7] focus:outline-none transition-colors resize-none"
-                    placeholder="Tell us about your project..."
+                    className="w-full px-4 py-3 text-black text-base rounded-lg bg-gray-50 border border-gray-200 focus:border-[#0074b7] focus:ring-2 focus:ring-[#0074b7] focus:outline-none transition-colors resize-none"
+                    placeholder="Tell us about your business needs and which product you're interested in..."
                   />
                 </div>
 
-                {/* Submit Button */}
+                {/* Submit Button with enhanced effects */}
                 <motion.button
                   type="submit"
                   disabled={isLoading}
                   onHoverStart={() => setIsHovered(true)}
                   onHoverEnd={() => setIsHovered(false)}
-                  whileHover={{ scale: isLoading ? 1 : 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className={`w-full md:w-auto px-8 py-4 bg-white text-[#003b73] rounded-full 
-                    font-semibold flex items-center justify-center gap-2 
-                    ${isLoading ? 'opacity-75 cursor-not-allowed' : 'hover:bg-[#bfd7ed]'} 
-                    transition-colors`}
+                  whileHover={{ scale: isLoading ? 1 : 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`relative w-full md:w-auto px-8 py-4 bg-white text-[#003b73] text-base rounded-full 
+                    font-semibold flex items-center justify-center gap-2 min-h-[44px] overflow-hidden
+                    ${isLoading ? 'opacity-75 cursor-not-allowed' : 'hover:shadow-2xl hover:shadow-white/20'} 
+                    transition-all duration-300`}
                 >
-                  <span>{isLoading ? 'Sending...' : 'Send Message'}</span>
+                  <span className="relative z-10">{isLoading ? 'Sending...' : 'Send Message'}</span>
                   <motion.div
                     animate={isHovered && !isLoading ? { x: [0, 4, 0] } : {}}
                     transition={{ repeat: Infinity, duration: 1 }}
+                    className="relative z-10"
                   >
                     <FiSend className="w-5 h-5" />
                   </motion.div>
+                  {!isLoading && (
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-[#bfd7ed] to-[#60a3d9]"
+                      initial={{ scale: 0, opacity: 0 }}
+                      whileHover={{ scale: 1, opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  )}
                 </motion.button>
               </form>
             </motion.div>

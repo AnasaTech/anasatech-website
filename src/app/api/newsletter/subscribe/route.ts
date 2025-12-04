@@ -7,8 +7,8 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    user: process.env.ZOHO_MAIL_USER, 
-    pass: process.env.ZOHO_MAIL_PASSWORD
+    user: process.env.MAIL_USER, 
+    pass: process.env.MAIL_PASSWORD
   }
 });
 
@@ -17,8 +17,8 @@ export async function POST(request: Request) {
     const { email } = await request.json();
 
     console.log({
-        mail: process.env.ZOHO_MAIL_USER,
-        pass: process.env.ZOHO_MAIL_PASSWORD
+        mail: process.env.MAIL_USER,
+        pass: process.env.MAIL_PASSWORD
     })
 
     if (!email) {
@@ -30,7 +30,7 @@ export async function POST(request: Request) {
 
     // Send confirmation email
     await transporter.sendMail({
-      from: 'newsletter@anasatech.com',
+      from: 'emerald@anasatech.com',
       to: email,
       subject: 'Welcome to Anasa Tech Newsletter',
       html: `
@@ -47,8 +47,8 @@ export async function POST(request: Request) {
 
     // Also send notification to admin
     await transporter.sendMail({
-      from: 'newsletter@anasatech.com',
-      to: 'newsletter@anasaech.com',
+      from: 'emerald@anasatech.com',
+      to: 'emerald@anasaech.com',
       subject: 'New Newsletter Subscription',
       html: `
         <div style="font-family: Arial, sans-serif;">

@@ -133,7 +133,7 @@ export async function POST(request: Request) {
                         <span style="color: #cbd5e1;">•</span>
                         <a href="https://luxe.anasatech.com" style="color: #0074b7; text-decoration: none; font-size: 13px; margin: 0 8px;">Luxe POS</a>
                         <span style="color: #cbd5e1;">•</span>
-                        <a href="https://gatherly.anasatech.com" style="color: #0074b7; text-decoration: none; font-size: 13px; margin: 0 8px;">Gatherly</a>
+                        <a href="https://gadainfo.anasatech.com" style="color: #0074b7; text-decoration: none; font-size: 13px; margin: 0 8px;">GadaInfo</a>
                       </div>
                     </td>
                   </tr>

@@ -50,7 +50,7 @@ const testimonials: Testimonial[] = [
   },
   {
     id: '2',
-    quote: 'Gatherly made organizing our projects and forms for our different clients easy. The integrated AI system helped us analyse the survey by easy chatting with our survey as asking it questions. Highly recommended for any organization focusing on offline data collection in Africa.',
+    quote: 'GadaInfo made organizing our projects and forms for our different clients easy. The integrated AI system helped us analyse the survey by easy chatting with our survey as asking it questions. Highly recommended for any organization focusing on offline data collection in Africa.',
     author: 'Mrs. Margaret Takyi-Micah',
     business: 'Nest of Ideas',
     location: 'Accra, Ghana',

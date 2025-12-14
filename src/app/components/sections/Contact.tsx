@@ -157,7 +157,7 @@ export default function Contact() {
                 Ready to Transform Your Business?
               </h2>
               <p className="text-gray max-w-2xl mx-auto text-base md:text-lg">
-                Interested in Luxe POS or Gatherly? Request a demo, ask about our products, or get in touch with our team. We're here to help you succeed.
+                Interested in Luxe POS or GadaInfo? Request a demo, ask about our products, or get in touch with our team. We're here to help you succeed.
               </p>
             </motion.div>
           </div>

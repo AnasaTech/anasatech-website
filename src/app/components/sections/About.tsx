@@ -131,7 +131,7 @@ export default function About() {
                 className="block relative h-[350px] md:h-[450px] rounded-3xl overflow-hidden shadow-2xl hover:shadow-[0_25px_60px_rgba(0,59,115,0.3)] transition-all duration-300 group cursor-pointer"
               >
                 <Image
-                  src="/ceo.png"
+                  src="/ceo.jpeg"
                   alt="Emerald Adjei - CEO & Co-Founder of Anasatech, women-led technology company empowering African businesses"
                   fill
                   className="object-cover rounded-3xl group-hover:scale-105 transition-transform duration-500"

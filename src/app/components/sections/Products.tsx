@@ -88,44 +88,44 @@ const products: Product[] = [
     }
   },
   {
-    id: 'gatherly',
-    name: 'Gatherly',
-    tagline: 'Offline Data Collection with AI-Powered Analytics',
-    description: 'Powerful offline data collection platform designed for African markets. Build custom forms with drag-and-drop interface, collect data offline, and leverage AI to analyze and visualize insights.',
+    id: 'gadainfo',
+    name: 'GadaInfo',
+    tagline: 'M&E Data Collection Platform for NGOs',
+    description: 'Comprehensive monitoring and evaluation platform designed specifically for NGOs and development organizations across Africa. Streamline your M&E processes with offline data collection, automated reporting, and AI-powered impact analysis.',
     features: [
       {
         icon: FaWpforms,
-        title: 'Drag-and-Drop Form Builder',
-        description: 'Create dynamic data collection forms with an intuitive visual builder'
+        title: 'M&E Form Builder',
+        description: 'Create monitoring and evaluation forms with pre-built templates for common M&E frameworks'
       },
       {
         icon: FaCloudDownloadAlt,
-        title: 'Offline Data Collection',
-        description: 'Collect data anywhere without internet connectivity, sync when online'
+        title: 'Offline Field Data Collection',
+        description: 'Collect beneficiary data and project metrics in remote areas without internet connectivity'
       },
       {
         icon: FaRobot,
-        title: 'AI-Powered Analysis',
-        description: 'Leverage artificial intelligence to analyze collected data and extract insights'
+        title: 'AI-Powered Impact Analysis',
+        description: 'Automatically analyze program outcomes and generate impact reports using artificial intelligence'
       },
       {
         icon: FaDatabase,
-        title: 'Data Management',
-        description: 'Centralized dashboard to manage submissions, users, and data workflows'
+        title: 'Project Data Management',
+        description: 'Centralized dashboard to manage multiple projects, beneficiaries, and evaluation workflows'
       },
       {
         icon: FaChartBar,
-        title: 'Data Visualization',
-        description: 'Transform raw data into actionable insights with interactive charts and reports'
+        title: 'M&E Reporting & Dashboards',
+        description: 'Generate donor reports and impact dashboards with real-time project performance metrics'
       },
       {
         icon: FaMobileAlt,
-        title: 'Mobile-First Design',
-        description: 'Optimized for field data collection on smartphones and tablets'
+        title: 'Field-Ready Mobile App',
+        description: 'Optimized for field officers and enumerators working in challenging environments'
       }
     ],
-    demoUrl: 'https://gatherly.anasatech.com',
-    image: '/gatherly2.png',
+    demoUrl: 'https://gadainfo.anasatech.com',
+    image: '/gadainfo.png',
     stats: [
       { value: '1k+', label: 'Forms Created' },
       { value: '120k', label: 'Data Points Collected' }

@@ -19,7 +19,7 @@ export default function Navbar() {
 
 
     return (
-        <nav className="fixed w-full bg-white/80 backdrop-blur-md z-50">
+        <nav className="fixed w-full bg-white md:bg-white/80 md:backdrop-blur-md z-50">
             <div className="container mx-auto px-4">
                 <div className="flex items-center justify-between h-20">
                     {/* Logo */}
@@ -32,7 +32,7 @@ export default function Navbar() {
                               height={40}
                               priority
                               quality={90}
-                              className="rounded-lg hover:scale-105 transition-transform duration-300"
+                              className="hover:scale-105 transition-transform duration-300"
                             />
                         </Link>
                     </div>
@@ -116,7 +116,7 @@ export default function Navbar() {
                         animate={{ x: 0 }}
                         exit={{ x: '100%' }}
                         transition={{ duration: 0.3, ease: 'easeInOut' }}
-                        className="fixed inset-0 top-20 md:hidden bg-white/95 backdrop-blur-lg z-40"
+                        className="fixed inset-0 top-20 md:hidden bg-white backdrop-blur-xl z-40"
                     >
                         <div className="container mx-auto px-4 py-8 h-full">
                             <div className="flex flex-col gap-6 h-full">

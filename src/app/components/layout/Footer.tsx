@@ -27,7 +27,7 @@ export default function Footer() {
       title: "Products",
       links: [
         { name: "Luxe POS", href: "https://luxe.anasatech.com", external: true },
-        { name: "Gatherly", href: "https://gatherly.anasatech.com", external: true },
+        { name: "GadaInfo", href: "https://gadainfo.anasatech.com", external: true },
       ]
     },
     {

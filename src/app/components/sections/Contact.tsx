@@ -174,12 +174,12 @@ export default function Contact() {
                     content: "info@anasatech.com",
                     link: "mailto:info@anasatech.com"
                   },
-                  {
-                    icon: FiPhone,
-                    title: "Phone",
-                    content: "+233 (547) 157-531",
-                    link: "tel:+233547157531"
-                  },
+                  // {
+                  //   icon: FiPhone,
+                  //   title: "Phone",
+                  //   content: "+233 (547) 157-531",
+                  //   link: "tel:+233547157531"
+                  // },
                   {
                     icon: FiMapPin,
                     title: "Office",

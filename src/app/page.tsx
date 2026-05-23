@@ -1,23 +1,25 @@
-import Hero from '@/app/components/sections/Hero';
-import Products from '@/app/components/sections/Products';
-import About from '@/app/components/sections/About';
-import SocialProof from '@/app/components/sections/SocialProof';
-import Contact from '@/app/components/sections/Contact';
-import Navbar from '@/app/components/layout/Navbar';
-import Footer from '@/app/components/layout/Footer';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
+import HeroSection from '@/components/sections/HeroSection';
+import FeaturesSection from '@/components/sections/FeaturesSection';
+import AIShowcaseSection from '@/components/sections/AIShowcaseSection';
+import UseCasesSection from '@/components/sections/UseCasesSection';
+import InterconnectionSection from '@/components/sections/InterconnectionSection';
+import CustomerSpotlightSection from '@/components/sections/CustomerSpotlightSection';
+import ContactSection from '@/components/sections/ContactSection';
 
 export default function Home() {
   return (
-    <div className="">
-      <main>
-        <Navbar/>
-        <Hero />
-        <Products />
-        <About />
-        <SocialProof />
-        <Contact />
-        <Footer />
-      </main>
-    </div>
+    <main>
+      <Navbar />
+      <HeroSection />
+      <FeaturesSection />
+      <AIShowcaseSection />
+      <UseCasesSection />
+      <InterconnectionSection />
+      <CustomerSpotlightSection />
+      <ContactSection />
+      <Footer />
+    </main>
   );
 }

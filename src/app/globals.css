@@ -1,156 +1,317 @@
 @import "tailwindcss";
 
+/* ============================================================
+   Luxe AI Design System Tokens
+   Aligned with Luxe POS webapp design system
+   ============================================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ------------------------------------------------------------------
+     Color Palette - Primary Blue
+     ------------------------------------------------------------------ */
+  --color-primary-900: #1e3a8a;
+  --color-primary-800: #1e40af;
+  --color-primary-700: #1d4ed8;
+  --color-primary-600: #2563eb;
+  --color-primary-500: #3b82f6;
+  --color-primary-400: #60a5fa;
+  --color-primary-300: #93c5fd;
+  --color-primary-200: #bfdbfe;
+  --color-primary-100: #dbeafe;
+  --color-primary-50: #eff6ff;
+
+  /* ------------------------------------------------------------------
+     Color Palette - Secondary Indigo
+     ------------------------------------------------------------------ */
+  --color-secondary-500: #6366f1;
+  --color-secondary-400: #818cf8;
+  --color-secondary-300: #a5b4fc;
+
+  /* ------------------------------------------------------------------
+     Color Palette - Accent Amber
+     ------------------------------------------------------------------ */
+  --color-accent-600: #d97706;
+  --color-accent-500: #f59e0b;
+  --color-accent-400: #fbbf24;
+  --color-accent-300: #fcd34d;
+
+  /* ------------------------------------------------------------------
+     Color Palette - Semantic
+     ------------------------------------------------------------------ */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+
+  /* ------------------------------------------------------------------
+     Color Palette - Neutrals
+     ------------------------------------------------------------------ */
+  --color-neutral-900: #111827;
+  --color-neutral-800: #1f2937;
+  --color-neutral-700: #374151;
+  --color-neutral-600: #4b5563;
+  --color-neutral-500: #6b7280;
+  --color-neutral-400: #9ca3af;
+  --color-neutral-300: #d1d5db;
+  --color-neutral-200: #e5e7eb;
+  --color-neutral-100: #f3f4f6;
+  --color-neutral-50: #f9fafb;
+
+  /* ------------------------------------------------------------------
+     Typography Scale (Inter, Major Third 1.25 ratio)
+     ------------------------------------------------------------------ */
+  --font-size-display: 4.5rem;
+  --line-height-display: 1.1;
+  --font-weight-display: 700;
+  --tracking-display: -0.02em;
+
+  --font-size-h1: 3.5rem;
+  --line-height-h1: 1.15;
+  --font-weight-h1: 700;
+  --tracking-h1: -0.02em;
+
+  --font-size-h2: 2.5rem;
+  --line-height-h2: 1.2;
+  --font-weight-h2: 600;
+  --tracking-h2: -0.01em;
+
+  --font-size-h3: 1.75rem;
+  --line-height-h3: 1.3;
+  --font-weight-h3: 600;
+  --tracking-h3: 0;
+
+  --font-size-h4: 1.25rem;
+  --line-height-h4: 1.4;
+  --font-weight-h4: 600;
+  --tracking-h4: 0;
+
+  --font-size-body: 1rem;
+  --line-height-body: 1.6;
+  --font-weight-body: 400;
+  --tracking-body: 0;
+
+  --font-size-small: 0.875rem;
+  --line-height-small: 1.5;
+  --font-weight-small: 400;
+  --tracking-small: 0.01em;
+
+  --font-size-caption: 0.75rem;
+  --line-height-caption: 1.4;
+  --font-weight-caption: 500;
+  --tracking-caption: 0.05em;
+
+  /* ------------------------------------------------------------------
+     Font Families (uses next/font CSS variables for optimal loading)
+     ------------------------------------------------------------------ */
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: var(--font-geist-mono), 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+
+  /* ------------------------------------------------------------------
+     Spacing Tokens (8px base unit)
+     ------------------------------------------------------------------ */
+  --spacing-section: 6rem;
+  --spacing-section-mobile: 4rem;
+  --spacing-component: 2rem;
+  --spacing-element: 1rem;
+  --spacing-tight: 0.5rem;
+
+  /* ------------------------------------------------------------------
+     Border Radius Tokens
+     ------------------------------------------------------------------ */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* ------------------------------------------------------------------
+     Shadow Tokens
+     ------------------------------------------------------------------ */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-glow: 0 0 30px rgba(59, 130, 246, 0.3);
+
+  /* ------------------------------------------------------------------
+     Hero Section (Dark gradient)
+     ------------------------------------------------------------------ */
+  --hero-bg-start: var(--color-neutral-900);
+  --hero-bg-end: var(--color-primary-900);
+  --hero-text: #ffffff;
+  --hero-text-muted: var(--color-neutral-300);
+
+  /* ------------------------------------------------------------------
+     Body Sections (Light)
+     ------------------------------------------------------------------ */
+  --body-bg: #ffffff;
+  --body-text: var(--color-neutral-900);
+  --body-text-muted: var(--color-neutral-600);
+  --body-border: var(--color-neutral-200);
 }
+
+/* ============================================================
+   Tailwind CSS v4 Theme Integration
+   ============================================================ */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary-900: var(--color-primary-900);
+  --color-primary-800: var(--color-primary-800);
+  --color-primary-700: var(--color-primary-700);
+  --color-primary-600: var(--color-primary-600);
+  --color-primary-500: var(--color-primary-500);
+  --color-primary-400: var(--color-primary-400);
+  --color-primary-300: var(--color-primary-300);
+  --color-primary-200: var(--color-primary-200);
+  --color-primary-100: var(--color-primary-100);
+  --color-primary-50: var(--color-primary-50);
+
+  --color-secondary-500: var(--color-secondary-500);
+  --color-secondary-400: var(--color-secondary-400);
+  --color-secondary-300: var(--color-secondary-300);
+
+  --color-accent-600: var(--color-accent-600);
+  --color-accent-500: var(--color-accent-500);
+  --color-accent-400: var(--color-accent-400);
+  --color-accent-300: var(--color-accent-300);
+
+  --color-neutral-900: var(--color-neutral-900);
+  --color-neutral-800: var(--color-neutral-800);
+  --color-neutral-700: var(--color-neutral-700);
+  --color-neutral-600: var(--color-neutral-600);
+  --color-neutral-500: var(--color-neutral-500);
+  --color-neutral-400: var(--color-neutral-400);
+  --color-neutral-300: var(--color-neutral-300);
+  --color-neutral-200: var(--color-neutral-200);
+  --color-neutral-100: var(--color-neutral-100);
+  --color-neutral-50: var(--color-neutral-50);
+
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-error: var(--color-error);
+  --color-info: var(--color-info);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* ============================================================
+   Base Styles
+   ============================================================ */
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0px) scale(1);
-    opacity: 0;
-  }
-  50% {
-    transform: translateY(-20px) scale(1.02);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-40px) scale(1);
-    opacity: 0;
-  }
-}
-
-.chat-bubble {
-  position: absolute;
-  min-width: 80px;
-  padding: 8px 12px;
-  border-radius: 16px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  backdrop-filter: blur(4px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.chat-bubble::before {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  left: 12px;
-  width: 12px;
-  height: 12px;
-  background: inherit;
-  transform: rotate(45deg);
-  border-radius: 2px;
-  z-index: -1;
-}
-
-.chat-bubble:nth-child(1) {
-  animation: float 4s infinite;
-  animation-delay: 0s;
-}
-
-.chat-bubble:nth-child(2) {
-  animation: float 4s infinite;
-  animation-delay: 1.5s;
-}
-
-.chat-bubble:nth-child(3) {
-  animation: float 4s infinite;
-  animation-delay: 2.5s;
-}
-
-@keyframes loading {
-  0% { transform: translateX(-100%); }
-  50% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-}
-
-/* Smooth transitions for all interactive elements */
-* {
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Custom background position animation */
-@keyframes bg-position {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.bg-pos-0 {
-  background-position: 0% 50%;
-}
-
-.bg-pos-100 {
-  background-position: 100% 50%;
-}
-
-.bg-size-200 {
-  background-size: 200% 100%;
-}
-
-/* Glassmorphism utilities */
-.glass {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.glass-dark {
-  background: rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
 }
 
-/* Enhanced shadow utilities */
-.shadow-glow {
-  box-shadow: 0 0 20px rgba(0, 116, 183, 0.3);
+body {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  letter-spacing: var(--tracking-body);
+  color: var(--body-text);
+  background-color: var(--body-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.shadow-glow-lg {
-  box-shadow: 0 0 40px rgba(0, 116, 183, 0.4);
+/* ============================================================
+   Reduced Motion
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
-/* Gradient text animation */
-@keyframes gradient-shift {
+/* ============================================================
+   Hero Section - Floating Gradient Orbs
+   Pure CSS animations (SSR-safe, no JS dependency)
+   ============================================================ */
+
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+}
+
+.hero-orb--1 {
+  width: 600px;
+  height: 600px;
+  background: var(--color-primary-500);
+  top: -200px;
+  left: -100px;
+  animation: float-orb-1 20s ease-in-out infinite;
+}
+
+.hero-orb--2 {
+  width: 400px;
+  height: 400px;
+  background: var(--color-secondary-500);
+  bottom: -100px;
+  right: -50px;
+  animation: float-orb-2 25s ease-in-out infinite;
+}
+
+.hero-orb--3 {
+  width: 300px;
+  height: 300px;
+  background: var(--color-accent-500);
+  top: 40%;
+  right: 20%;
+  animation: float-orb-3 18s ease-in-out infinite;
+}
+
+@keyframes float-orb-1 {
   0%, 100% {
-    background-position: 0% 50%;
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, 20px) scale(1.05);
+  }
+  66% {
+    transform: translate(-20px, -10px) scale(0.95);
+  }
+}
+
+@keyframes float-orb-2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(-25px, -15px) scale(1.03);
+  }
+  66% {
+    transform: translate(15px, 25px) scale(0.97);
+  }
+}
+
+@keyframes float-orb-3 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
   }
   50% {
-    background-position: 100% 50%;
+    transform: translate(20px, -20px) scale(1.08);
   }
 }
 
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradient-shift 3s ease infinite;
+/* ============================================================
+   Utility: Hide scrollbar (for horizontal scroll tabs)
+   ============================================================ */
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }

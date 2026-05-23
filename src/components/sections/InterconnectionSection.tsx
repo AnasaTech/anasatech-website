@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useReducedMotion } from 'framer-motion';
-import Image from 'next/image';
+import LoadingImage from '@/components/ui/LoadingImage';
 import { HiSparkles, HiTruck, HiUserGroup } from 'react-icons/hi2';
 
 export default function InterconnectionSection() {
@@ -85,7 +85,7 @@ export default function InterconnectionSection() {
               </div>
               {/* POS image */}
               <div className="mt-auto rounded-2xl overflow-hidden">
-                <Image
+                <LoadingImage
                   src="/pos.png"
                   alt="Luxe AI POS interface"
                   width={600}

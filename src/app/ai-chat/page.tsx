@@ -1,6 +1,6 @@
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
-import Image from 'next/image';
+import LoadingImage from '@/components/ui/LoadingImage';
 
 export const metadata = {
   title: 'AI Chat | Luxe AI',
@@ -53,7 +53,7 @@ export default function AIChatPage() {
       <section className="py-12 md:py-16 px-6 md:px-8 bg-white">
         <div className="mx-auto max-w-5xl">
           <div className="rounded-2xl overflow-hidden border border-neutral-200 shadow-lg">
-            <Image
+            <LoadingImage
               src="/ai-chat-screenshot.png"
               alt="Luxe AI Chat interface showing natural language queries with chart responses"
               width={1200}

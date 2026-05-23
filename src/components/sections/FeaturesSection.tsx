@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
+import LoadingImage from '@/components/ui/LoadingImage';
 
 interface Feature {
   id: string;
@@ -140,7 +140,7 @@ export default function FeaturesSection() {
                 style={{ backgroundColor: '#f3f3f3' }}
               >
                 <div className="rounded-2xl overflow-hidden">
-                  <Image
+                  <LoadingImage
                     src={activeFeature.image}
                     alt={`${activeFeature.title} — Luxe AI`}
                     width={800}
@@ -189,7 +189,7 @@ export default function FeaturesSection() {
               <div className="rounded-2xl overflow-hidden" style={{ backgroundColor: '#f3f3f3' }}>
                 <div className="p-4">
                   <div className="rounded-2xl overflow-hidden">
-                    <Image
+                    <LoadingImage
                       src={activeFeature.image}
                       alt={`${activeFeature.title} — Luxe AI`}
                       width={800}

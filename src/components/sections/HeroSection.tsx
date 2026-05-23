@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useReducedMotion } from 'framer-motion';
-import Image from 'next/image';
+import LoadingImage from '@/components/ui/LoadingImage';
 
 export default function HeroSection() {
   const shouldReduceMotion = useReducedMotion();
@@ -110,7 +110,7 @@ export default function HeroSection() {
               {/* Screen bezel - white */}
               <div className="bg-white rounded-lg md:rounded-xl p-[3px] md:p-[4px]">
                 <div className="rounded-md md:rounded-lg overflow-hidden">
-                  <Image
+                  <LoadingImage
                     src="/dashboard.png"
                     alt="Luxe AI Dashboard — real-time sales tracking and business analytics"
                     width={1200}
@@ -152,7 +152,7 @@ export default function HeroSection() {
                   {/* Dynamic Island */}
                   <div className="absolute top-[10px] left-1/2 -translate-x-1/2 w-[28%] h-[14px] bg-black rounded-full z-10" />
                   {/* Screen content */}
-                  <Image
+                  <LoadingImage
                     src="/customer-app.png"
                     alt="Luxe AI Customer App — self-service ordering from your phone"
                     width={220}

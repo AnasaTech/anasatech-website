@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useReducedMotion } from 'framer-motion';
-import Image from 'next/image';
+import LoadingImage from '@/components/ui/LoadingImage';
 import { HiLightBulb, HiHeart, HiChartBar, HiUserGroup } from 'react-icons/hi2';
 
 export default function AboutContent() {
@@ -75,7 +75,7 @@ export default function AboutContent() {
                 <div className="bg-[#e2e3e5] rounded-t-xl p-[5px]">
                   <div className="bg-white rounded-lg p-[3px]">
                     <div className="rounded-md overflow-hidden">
-                      <Image src="/dashboard.png" alt="Luxe AI Dashboard" width={500} height={312} className="w-full h-auto" />
+                      <LoadingImage src="/dashboard.png" alt="Luxe AI Dashboard" width={500} height={312} className="w-full h-auto" />
                     </div>
                   </div>
                 </div>
@@ -96,7 +96,7 @@ export default function AboutContent() {
                 <div className="bg-[#2c2c2e] rounded-[16px] md:rounded-[20px] p-[2px] shadow-lg ring-1 ring-[#48484a]">
                   <div className="relative bg-black rounded-[14px] md:rounded-[18px] overflow-hidden">
                     <div className="absolute top-[4px] left-1/2 -translate-x-1/2 w-[28%] h-[6px] bg-black rounded-full z-10" />
-                    <Image src="/customer-app.png" alt="Customer App" width={100} height={216} className="w-full h-auto" />
+                    <LoadingImage src="/customer-app.png" alt="Customer App" width={100} height={216} className="w-full h-auto" />
                   </div>
                 </div>
               </div>
@@ -116,7 +116,7 @@ export default function AboutContent() {
             {/* Founder */}
             <div className="lg:w-1/3">
               <div className="rounded-2xl overflow-hidden">
-                <Image
+                <LoadingImage
                   src="/emerald.png"
                   alt="Emerald Adjei — CEO & Co-Founder of Anasatech"
                   width={400}

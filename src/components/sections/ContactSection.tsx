@@ -72,15 +72,15 @@ export default function ContactSection() {
             {/* Trust signals - compact on mobile */}
             <div className="mt-6 pt-6 border-t border-neutral-100">
               <div className="flex flex-wrap gap-x-4 gap-y-1 justify-center md:justify-start">
-                <span className="text-xs text-neutral-400 flex items-center gap-1">
+                <span className="text-xs text-neutral-700 font-medium flex items-center gap-1">
                   <svg className="w-3 h-3 text-blue-600" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
                   24h response
                 </span>
-                <span className="text-xs text-neutral-400 flex items-center gap-1">
+                <span className="text-xs text-neutral-700 font-medium flex items-center gap-1">
                   <svg className="w-3 h-3 text-blue-600" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
                   Free demo
                 </span>
-                <span className="text-xs text-neutral-400 flex items-center gap-1">
+                <span className="text-xs text-neutral-700 font-medium flex items-center gap-1">
                   <svg className="w-3 h-3 text-blue-600" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
                   No commitment
                 </span>

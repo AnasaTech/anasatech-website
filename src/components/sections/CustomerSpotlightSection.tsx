@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
+import LoadingImage from '@/components/ui/LoadingImage';
 
 interface Customer {
   id: string;
@@ -127,7 +127,7 @@ export default function CustomerSpotlightSection() {
             <div className="grid grid-cols-1 lg:grid-cols-2">
               {/* Image */}
               <div className="relative h-[220px] sm:h-[300px] lg:h-auto lg:min-h-[500px]">
-                <Image
+                <LoadingImage
                   src={customer.image}
                   alt={customer.imageAlt}
                   fill

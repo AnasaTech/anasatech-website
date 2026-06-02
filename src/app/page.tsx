@@ -7,6 +7,7 @@ import AIShowcaseSection from '@/components/sections/AIShowcaseSection';
 import UseCasesSection from '@/components/sections/UseCasesSection';
 import InterconnectionSection from '@/components/sections/InterconnectionSection';
 import CustomerSpotlightSection from '@/components/sections/CustomerSpotlightSection';
+import PaymentBanner from '@/components/sections/PaymentBanner';
 import ContactSection from '@/components/sections/ContactSection';
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
       <UseCasesSection />
       <InterconnectionSection />
       <CustomerSpotlightSection />
+      <PaymentBanner />
       <ContactSection />
       <Footer />
     </main>

@@ -92,7 +92,7 @@ export default function AIChatPage() {
           <h2 className="text-2xl md:text-3xl text-black font-normal mb-4">Ready to talk to your data?</h2>
           <p className="text-sm text-neutral-500 mb-6">Start a conversation with your business today.</p>
           <a
-            href={process.env.NEXT_PUBLIC_SIGN_IN_URL || 'https://app.luxeai.com'}
+            href={process.env.NEXT_PUBLIC_SIGN_IN_URL || 'https://luxeai.anasatech.com'}
             className="inline-flex items-center gap-3 bg-black text-white text-sm font-medium pl-6 pr-2 py-2.5 rounded-full hover:bg-neutral-800 transition-colors"
           >
             Try AI Chat

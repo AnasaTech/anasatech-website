@@ -133,13 +133,13 @@ export default function Navbar() {
           {/* Desktop CTAs - right */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href={process.env.NEXT_PUBLIC_SIGN_IN_URL || "https://app.luxeai.com"}
+              href={process.env.NEXT_PUBLIC_SIGN_IN_URL || "https://luxeai.anasatech.com"}
               className="text-sm font-medium text-neutral-700 hover:text-neutral-900 transition-colors px-5 py-2 rounded-full border border-neutral-300 hover:border-neutral-400"
             >
               Log in
             </a>
             <a
-              href={process.env.NEXT_PUBLIC_SIGN_UP_URL || "https://app.luxeai.com/register"}
+              href={process.env.NEXT_PUBLIC_SIGN_UP_URL || "https://luxeai.anasatech.com/register"}
               className="text-sm font-medium text-white bg-black hover:bg-neutral-800 transition-colors px-5 py-2 rounded-full"
             >
               Sign Up
@@ -231,13 +231,13 @@ export default function Navbar() {
                 </div>
                 <div className="mt-auto pt-6 space-y-3">
                   <a
-                    href={process.env.NEXT_PUBLIC_SIGN_UP_URL || "https://app.luxeai.com/register"}
+                    href={process.env.NEXT_PUBLIC_SIGN_UP_URL || "https://luxeai.anasatech.com/register"}
                     className="block w-full text-center text-sm font-medium text-white bg-neutral-900 hover:bg-neutral-800 transition-colors px-4 py-3 rounded-full"
                   >
                     Sign Up
                   </a>
                   <a
-                    href={process.env.NEXT_PUBLIC_SIGN_IN_URL || "https://app.luxeai.com"}
+                    href={process.env.NEXT_PUBLIC_SIGN_IN_URL || "https://luxeai.anasatech.com"}
                     className="block w-full text-center text-sm font-medium text-neutral-700 hover:text-neutral-900 transition-colors px-4 py-3 rounded-full border border-neutral-200"
                   >
                     Log in

@@ -9,6 +9,7 @@ interface Feature {
   title: string;
   description: string;
   image: string;
+  mobileImage?: string;
 }
 
 const features: Feature[] = [
@@ -23,18 +24,21 @@ const features: Feature[] = [
     title: 'Point of Sale',
     description: 'Fast, intuitive POS built for high-volume sales across multiple branches.',
     image: '/pos.png',
+    mobileImage: '/mobile-pos.png',
   },
   {
     id: 'customer-app',
     title: 'Customer App',
-    description: 'Let your customers browse menus, place orders, and pay — all from their phone via QR code.',
+    description: 'Let your customers browse products, place orders, and pay — all from their phone via QR code.',
     image: '/pos.png',
+    mobileImage: '/customer-app.png',
   },
   {
     id: 'inventory',
     title: 'Inventory Management',
     description: 'Track stock levels in real-time, get AI-powered low-stock predictions, and manage transfers between branches.',
-    image: '/dashboard.png',
+    image: '/inventory-desktop.png',
+    mobileImage: '/inventory-mobile.png',
   },
   {
     id: 'analytics',
@@ -46,13 +50,15 @@ const features: Feature[] = [
     id: 'multi-branch',
     title: 'Multi-Branch',
     description: 'Manage all your locations from one dashboard — pricing, stock, and staff.',
-    image: '/pos.png',
+    image: '/multi-branch-desktop.png',
+    mobileImage: '/multi-branch-mobile.png',
   },
   {
     id: 'reports',
-    title: 'Financial Reports',
-    description: 'Automated reports for sales, expenses, and profit — no spreadsheets needed.',
-    image: '/dashboard.png',
+    title: 'Performance Reports',
+    description: 'Automated reports for inventory, sales, customers, and financials — no spreadsheets needed.',
+    image: '/report-desktop.png',
+    mobileImage: '/report-mobile.png',
   },
 ];
 
@@ -76,7 +82,7 @@ export default function FeaturesSection() {
             </p>
           </div>
           <a
-            href="https://app.luxeai.com"
+            href={process.env.NEXT_PUBLIC_SIGN_IN_URL || "https://luxeai.anasatech.com"}
             className="inline-flex items-center gap-3 bg-black text-white text-base font-medium pl-7 pr-3 py-2.5 rounded-full hover:bg-neutral-800 transition-colors shrink-0"
           >
             Get Started
@@ -136,18 +142,56 @@ export default function FeaturesSection() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.3 }}
-                className="rounded-2xl overflow-hidden p-6 md:p-8 h-full flex items-center"
-                style={{ backgroundColor: '#f3f3f3' }}
+                className="rounded-2xl overflow-hidden h-full flex items-center justify-center"
+                style={{ backgroundColor: 'transparent' }}
               >
-                <div className="rounded-2xl overflow-hidden">
-                  <LoadingImage
-                    src={activeFeature.image}
-                    alt={`${activeFeature.title} — Luxe AI`}
-                    width={800}
-                    height={500}
-                    className="w-full h-auto"
-                  />
-                </div>
+                {activeFeature.mobileImage && activeFeature.id === 'customer-app' ? (
+                  /* iPhone frame for customer app */
+                  <div className="w-[220px]">
+                    <div className="relative px-[3px]">
+                      <div className="absolute right-0 top-[28%] w-[3px] h-[12%] bg-[#1a1a1c] rounded-r-sm z-30" />
+                      <div className="absolute left-0 top-[22%] w-[3px] h-[8%] bg-[#1a1a1c] rounded-l-sm z-30" />
+                      <div className="absolute left-0 top-[32%] w-[3px] h-[8%] bg-[#1a1a1c] rounded-l-sm z-30" />
+                      <div className="absolute left-0 top-[16%] w-[3px] h-[5%] bg-[#1a1a1c] rounded-l-sm z-30" />
+                      <div className="bg-[#2c2c2e] rounded-[36px] p-[3px] shadow-xl ring-1 ring-[#48484a]">
+                        <div className="relative bg-black rounded-[33px] overflow-hidden">
+                          <div className="absolute top-[10px] left-1/2 -translate-x-1/2 w-[28%] h-[14px] bg-black rounded-full z-10" />
+                          <LoadingImage
+                            src={activeFeature.mobileImage}
+                            alt={`${activeFeature.title} — Luxe AI`}
+                            width={220}
+                            height={476}
+                            className="w-full h-auto"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  /* Computer frame for desktop screenshots */
+                  <div className="w-full">
+                    <div className="bg-[#e2e3e5] rounded-t-xl p-[6px] shadow-lg">
+                      <div className="bg-white rounded-lg p-[3px]">
+                        <div className="rounded-md overflow-hidden">
+                          <LoadingImage
+                            src={activeFeature.image}
+                            alt={`${activeFeature.title} — Luxe AI`}
+                            width={800}
+                            height={500}
+                            className="w-full h-auto"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-[#e2e3e5] h-5 rounded-b-lg flex items-center justify-center">
+                      <div className="w-3 h-3 rounded-full bg-[#c8c9cb]" />
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <div className="w-[8%] h-4 bg-gradient-to-b from-[#d4d5d7] to-[#bbbcbe] rounded-b-sm" />
+                      <div className="w-[18%] h-[4px] bg-[#c8c9cb] rounded-full" />
+                    </div>
+                  </div>
+                )}
               </motion.div>
             </AnimatePresence>
           </div>
@@ -186,19 +230,48 @@ export default function FeaturesSection() {
               <p className="text-base text-neutral-600 leading-relaxed mb-4">
                 {activeFeature.description}
               </p>
-              <div className="rounded-2xl overflow-hidden" style={{ backgroundColor: '#f3f3f3' }}>
-                <div className="p-4">
-                  <div className="rounded-2xl overflow-hidden">
-                    <LoadingImage
-                      src={activeFeature.image}
-                      alt={`${activeFeature.title} — Luxe AI`}
-                      width={800}
-                      height={500}
-                      className="w-full h-auto"
-                    />
+              {activeFeature.mobileImage ? (
+                /* iPhone frame for mobile screenshots */
+                <div className="flex justify-center py-4">
+                  <div className="w-[220px]">
+                    <div className="relative px-[3px]">
+                      {/* Side buttons */}
+                      <div className="absolute right-0 top-[28%] w-[3px] h-[12%] bg-[#1a1a1c] rounded-r-sm z-30" />
+                      <div className="absolute left-0 top-[22%] w-[3px] h-[8%] bg-[#1a1a1c] rounded-l-sm z-30" />
+                      <div className="absolute left-0 top-[32%] w-[3px] h-[8%] bg-[#1a1a1c] rounded-l-sm z-30" />
+                      <div className="absolute left-0 top-[16%] w-[3px] h-[5%] bg-[#1a1a1c] rounded-l-sm z-30" />
+                      {/* Titanium frame */}
+                      <div className="bg-[#2c2c2e] rounded-[36px] p-[3px] shadow-xl ring-1 ring-[#48484a]">
+                        <div className="relative bg-black rounded-[33px] overflow-hidden">
+                          {/* Dynamic Island */}
+                          <div className="absolute top-[10px] left-1/2 -translate-x-1/2 w-[28%] h-[14px] bg-black rounded-full z-10" />
+                          <LoadingImage
+                            src={activeFeature.mobileImage}
+                            alt={`${activeFeature.title} — Luxe AI`}
+                            width={220}
+                            height={476}
+                            className="w-full h-auto"
+                          />
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              ) : (
+                <div className="rounded-2xl overflow-hidden">
+                  <div className="p-4">
+                    <div className="rounded-2xl overflow-hidden">
+                      <LoadingImage
+                        src={activeFeature.image}
+                        alt={`${activeFeature.title} — Luxe AI`}
+                        width={800}
+                        height={500}
+                        className="w-full h-auto"
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
             </motion.div>
           </AnimatePresence>
         </div>

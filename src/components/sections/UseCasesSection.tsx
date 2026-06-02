@@ -21,7 +21,7 @@ const useCases: UseCase[] = [
     tab: 'Customer Experience',
     headline: 'Your Customers Order From Anywhere',
     points: [
-      { icon: <HiQrCode className="w-5 h-5" />, text: 'One QR scan opens your full menu — no app download' },
+      { icon: <HiQrCode className="w-5 h-5" />, text: 'One QR scan opens your full catalog — no app download' },
       { icon: <HiDevicePhoneMobile className="w-5 h-5" />, text: 'Customers browse, customize, and order from their phone' },
       { icon: <HiClock className="w-5 h-5" />, text: 'Reduce wait times and serve more customers per hour' },
       { icon: <HiShoppingBag className="w-5 h-5" />, text: 'AI recommends items based on past orders — increasing average order value' },
@@ -117,7 +117,7 @@ export default function UseCasesSection() {
             From operations to payments — tools designed for real business scenarios.
           </p>
           <a
-            href="https://app.luxeai.com"
+            href={process.env.NEXT_PUBLIC_SIGN_IN_URL || "https://luxeai.anasatech.com"}
             className="inline-flex items-center gap-3 bg-white text-black text-base font-medium pl-7 pr-3 py-2.5 rounded-full hover:bg-neutral-100 transition-colors border border-neutral-200"
           >
             Get Started

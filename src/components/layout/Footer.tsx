@@ -41,7 +41,7 @@ function ComingSoonModal({ product, onClose }: { product: string; onClose: () =>
 export default function Footer() {
   const [modalProduct, setModalProduct] = useState<string | null>(null);
 
-  const signInUrl = process.env.NEXT_PUBLIC_SIGN_IN_URL || 'https://app.luxeai.com';
+  const signInUrl = process.env.NEXT_PUBLIC_SIGN_IN_URL || 'https://luxeai.anasatech.com';
 
   return (
     <>

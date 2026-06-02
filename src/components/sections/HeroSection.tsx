@@ -72,7 +72,7 @@ export default function HeroSection() {
           transition={transition(0.7)}
         >
           <a
-            href="https://app.luxeai.com"
+            href={process.env.NEXT_PUBLIC_SIGN_IN_URL || "https://luxeai.anasatech.com"}
             className="inline-flex items-center gap-3 bg-black text-white text-sm font-medium pl-5 pr-2 py-2 rounded-full hover:bg-neutral-800 transition-colors"
           >
             Get Started
@@ -82,6 +82,7 @@ export default function HeroSection() {
               </svg>
             </span>
           </a>
+          {/* TODO: Uncomment when demo video is ready
           <a
             href="#products"
             className="inline-flex items-center gap-3 bg-white text-black text-sm font-medium pl-2 pr-5 py-2 rounded-full hover:bg-neutral-50 transition-colors border border-neutral-200"
@@ -93,6 +94,7 @@ export default function HeroSection() {
             </span>
             Watch Demo
           </a>
+          */}
         </motion.div>
       </div>
 
@@ -153,8 +155,8 @@ export default function HeroSection() {
                   <div className="absolute top-[10px] left-1/2 -translate-x-1/2 w-[28%] h-[14px] bg-black rounded-full z-10" />
                   {/* Screen content */}
                   <LoadingImage
-                    src="/customer-app.png"
-                    alt="Luxe AI Customer App — self-service ordering from your phone"
+                    src="/mobile-pos.png"
+                    alt="Luxe AI Mobile POS — manage your business from your phone"
                     width={220}
                     height={476}
                     className="w-full h-auto"

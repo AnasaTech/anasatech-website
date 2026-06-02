@@ -56,7 +56,7 @@ export default function AboutContent() {
                 We&apos;re a women-led company building tools that help African entrepreneurs thrive — offline-first, mobile money native, multi-branch from day one.
               </p>
               <a
-                href="https://app.luxeai.com"
+                href={process.env.NEXT_PUBLIC_SIGN_IN_URL || "https://luxeai.anasatech.com"}
                 className="inline-flex items-center gap-2 bg-black text-white text-sm font-medium px-6 py-3 rounded-full hover:bg-neutral-800 transition-colors"
               >
                 Get Started

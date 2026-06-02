@@ -3,7 +3,7 @@ import Footer from '@/components/layout/Footer';
 
 export const metadata = {
   title: 'Intelligence | Luxe AI',
-  description: 'AI-powered business intelligence that surfaces insights before you ask for them.',
+  description: 'AI-powered business intelligence that helps you make better decisions, faster.',
 };
 
 const insights = [
@@ -43,14 +43,14 @@ export default function IntelligencePage() {
         <div className="mx-auto max-w-4xl text-center">
           <span className="inline-block text-xs font-medium tracking-[0.2em] uppercase text-blue-400 mb-4">Intelligence</span>
           <h1 className="text-3xl sm:text-4xl md:text-[48px] text-white leading-[1.1] font-normal">
-            AI that thinks ahead<br className="hidden sm:block" />
-            so you don&apos;t have to.
+            AI-powered insights<br className="hidden sm:block" />
+            to sharpen every decision.
           </h1>
           <p className="mt-5 text-base text-neutral-400 leading-relaxed max-w-xl mx-auto">
-            Luxe AI Intelligence continuously analyzes your business data and surfaces actionable insights — before problems become costly.
+            Luxe AI Intelligence continuously analyzes your business data and surfaces actionable insights — so you can focus on what matters most.
           </p>
           <a
-            href={process.env.NEXT_PUBLIC_SIGN_IN_URL || 'https://app.luxeai.com'}
+            href={process.env.NEXT_PUBLIC_SIGN_IN_URL || 'https://luxeai.anasatech.com'}
             className="inline-flex items-center gap-3 bg-white text-black text-sm font-medium pl-6 pr-2 py-2.5 rounded-full hover:bg-neutral-100 transition-colors mt-8"
           >
             Get Started
@@ -66,10 +66,10 @@ export default function IntelligencePage() {
         <div className="mx-auto max-w-6xl">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-[36px] text-black leading-[1.2] font-normal">
-              Intelligence that works while you sleep
+              Always-on intelligence for your business
             </h2>
             <p className="mt-4 text-sm text-neutral-500 max-w-lg mx-auto">
-              Our AI continuously monitors your data and proactively delivers insights — no queries needed.
+              Our AI continuously monitors your data and proactively delivers insights — so you always have the full picture.
             </p>
           </div>
 
@@ -158,10 +158,10 @@ export default function IntelligencePage() {
       {/* CTA */}
       <section className="py-16 md:py-20 px-6 md:px-8 bg-white">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-2xl md:text-3xl text-black font-normal mb-4">Let AI run your analytics.</h2>
-          <p className="text-sm text-neutral-500 mb-6">Focus on growing your business. We&apos;ll handle the insights.</p>
+          <h2 className="text-2xl md:text-3xl text-black font-normal mb-4">Your business data, working harder for you.</h2>
+          <p className="text-sm text-neutral-500 mb-6">Spend less time digging through numbers. Get the insights you need to grow.</p>
           <a
-            href={process.env.NEXT_PUBLIC_SIGN_IN_URL || 'https://app.luxeai.com'}
+            href={process.env.NEXT_PUBLIC_SIGN_IN_URL || 'https://luxeai.anasatech.com'}
             className="inline-flex items-center gap-3 bg-black text-white text-sm font-medium pl-6 pr-2 py-2.5 rounded-full hover:bg-neutral-800 transition-colors"
           >
             Get Started

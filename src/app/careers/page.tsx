@@ -25,16 +25,9 @@ export default function CareersPage() {
         <div className="mx-auto max-w-2xl text-center">
           <div className="bg-[#f3f3f3] rounded-2xl p-10 md:p-14">
             <h2 className="text-xl font-semibold text-black mb-3">No open positions at the moment</h2>
-            <p className="text-sm text-neutral-500 leading-relaxed mb-6">
-              We don&apos;t have any openings right now, but we&apos;re always interested in hearing from talented people. Drop us a line and we&apos;ll keep you in mind for future opportunities.
+            <p className="text-sm text-neutral-500 leading-relaxed">
+              We don&apos;t have any openings right now. Check back later — when we&apos;re hiring, roles will be posted here.
             </p>
-            <a
-              href="mailto:info@anasatech.com"
-              className="inline-flex items-center gap-2 bg-black text-white text-sm font-medium px-6 py-3 rounded-full hover:bg-neutral-800 transition-colors"
-            >
-              Send us your CV
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
-            </a>
           </div>
         </div>
       </section>

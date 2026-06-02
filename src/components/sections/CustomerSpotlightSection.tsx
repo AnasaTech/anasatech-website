@@ -102,7 +102,7 @@ export default function CustomerSpotlightSection() {
             </h2>
           </div>
           <a
-            href="https://app.luxeai.com"
+            href={process.env.NEXT_PUBLIC_SIGN_IN_URL || "https://luxeai.anasatech.com"}
             className="inline-flex items-center gap-3 bg-black text-white text-base font-medium pl-7 pr-3 py-2.5 rounded-full hover:bg-neutral-800 transition-colors shrink-0"
           >
             Get Started

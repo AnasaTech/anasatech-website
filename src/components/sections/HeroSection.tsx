@@ -160,6 +160,7 @@ export default function HeroSection() {
                     width={220}
                     height={476}
                     className="w-full h-auto"
+                    priority
                   />
                 </div>
               </div>

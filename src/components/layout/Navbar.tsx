@@ -139,7 +139,7 @@ export default function Navbar() {
               Log in
             </a>
             <a
-              href={process.env.NEXT_PUBLIC_SIGN_UP_URL || "https://luxeai.anasatech.com/register"}
+              href={process.env.NEXT_PUBLIC_SIGN_UP_URL || "https://luxeai.anasatech.com/signup"}
               className="text-sm font-medium text-white bg-black hover:bg-neutral-800 transition-colors px-5 py-2 rounded-full"
             >
               Sign Up
@@ -231,7 +231,7 @@ export default function Navbar() {
                 </div>
                 <div className="mt-auto pt-6 space-y-3">
                   <a
-                    href={process.env.NEXT_PUBLIC_SIGN_UP_URL || "https://luxeai.anasatech.com/register"}
+                    href={process.env.NEXT_PUBLIC_SIGN_UP_URL || "https://luxeai.anasatech.com/signup"}
                     className="block w-full text-center text-sm font-medium text-white bg-neutral-900 hover:bg-neutral-800 transition-colors px-4 py-3 rounded-full"
                   >
                     Sign Up

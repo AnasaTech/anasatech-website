@@ -54,7 +54,7 @@ export default function AIChatPage() {
         <div className="mx-auto max-w-5xl">
           <div className="rounded-2xl overflow-hidden border border-neutral-200 shadow-lg">
             <LoadingImage
-              src="/ai-chat-screenshot.png"
+              src="/ai-chat-desktop.jpeg"
               alt="Luxe AI Chat interface showing natural language queries with chart responses"
               width={1200}
               height={700}

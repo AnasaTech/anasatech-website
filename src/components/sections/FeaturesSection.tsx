@@ -17,7 +17,8 @@ const features: Feature[] = [
     id: 'ai-chat',
     title: 'AI Chat',
     description: 'Talk to your business data in natural language — ask questions, get instant answers and insights powered by AI.',
-    image: '/dashboard.png',
+    image: '/ai-chat-desktop.jpeg',
+    mobileImage: '/ai-chat-mobile.jpeg'
   },
   {
     id: 'pos',
